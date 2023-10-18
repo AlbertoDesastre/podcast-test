@@ -1,5 +1,14 @@
-function Dashboard() {
-  return <h1>This is a H1 tag.</h1>;
+import { ReactNode } from "react";
+import "./Dashboard.scss";
+
+function Dashboard({ children }: { children: React.ReactNode }) {
+  return (
+    <main>
+      <h1>Podcaster</h1>
+
+      {children}
+    </main>
+  );
 }
 
 export default Dashboard;

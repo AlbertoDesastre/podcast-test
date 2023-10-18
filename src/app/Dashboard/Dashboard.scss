@@ -1,0 +1,13 @@
+@import "../styles/index.scss";
+
+h1 {
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.5rem;
+  color: $dark-blue;
+
+  border-bottom: 1px solid rgba(187, 187, 187, 0.68);
+  box-shadow: 1px 1px 1px 1px rgba(165, 160, 160, 0.1);
+
+  margin-bottom: 0.5rem;
+}
