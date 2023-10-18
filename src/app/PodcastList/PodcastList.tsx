@@ -1,11 +1,21 @@
 function PodcastList() {
   return (
     <ul>
-      <p>JAJAJ</p>
-      <p>JAJAJ</p>
-      <p>JAJAJ</p>
-      <p>JAJAJ</p>
-      <p>JAJAJ</p>
+      <li>
+        <p>JAJAJ</p>
+      </li>
+      <li>
+        <p>JAJAJ</p>
+      </li>
+      <li>
+        <p>JAJAJ</p>
+      </li>
+      <li>
+        <p>JAJAJ</p>
+      </li>
+      <li>
+        <p>JAJAJ</p>
+      </li>
     </ul>
   );
 }
