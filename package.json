@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "jest --config --forceExit",
+    "test:watch": "jest --config --watchAll --forceExit"
   },
   "dependencies": {
     "next": "13.5.5",
