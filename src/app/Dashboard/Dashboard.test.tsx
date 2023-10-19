@@ -4,11 +4,11 @@ import { prettyDOM, render } from "@testing-library/react";
 import Dashboard from "./Dashboard";
 import PodcastList from "../PodcastList/PodcastList";
 
-describe("MAIN LAYOUT", () => {
+describe("DASHBOARD", () => {
   test("dashboard should render a list with li", () => {
     const view = render(
       <Dashboard>
-        <PodcastList />
+        <PodcastList podcasts={""} />
       </Dashboard>
     );
 

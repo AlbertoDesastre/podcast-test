@@ -1,4 +1,7 @@
-function PodcastList() {
+import useFecth from "@/services/useFetch";
+import { URLS } from "../../types";
+
+function PodcastList({ podcasts }: { podcasts: any }) {
   return (
     <ul>
       <li>
