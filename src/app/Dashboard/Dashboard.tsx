@@ -1,15 +1,25 @@
 import { ReactNode } from "react";
 
-import useFecth from "@/services/useFetch";
 import { URLS } from "../../types";
 import "./Dashboard.scss";
+import { useFetch } from "@/services/useFetch";
 
-function Dashboard({ children }: { children: React.ReactNode }) {
+function Dashboard({
+  loading,
+  children,
+}: {
+  loading: boolean;
+  children: React.ReactNode;
+}) {
   return (
     <main>
       <header>
         <h1>Podcaster</h1>
-        <span> Loading... </span>
+        {loading && (
+          <div className="loader">
+            <span className="loader-background"></span>
+          </div>
+        )}
       </header>
 
       {children}

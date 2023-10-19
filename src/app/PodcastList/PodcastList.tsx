@@ -1,4 +1,4 @@
-import useFecth from "@/services/useFetch";
+import { useFetch } from "@/services/useFetch";
 import { URLS } from "../../types";
 
 function PodcastList({ podcasts }: { podcasts: any }) {
