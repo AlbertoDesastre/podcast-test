@@ -111,14 +111,14 @@ describe("SERVICE --> getCache", () => {
     expect(response).toMatchObject({
       data: expect.any(Object),
       expirationDate: expect.any(Date),
-      expirated: true,
+      expirated: false,
     });
   });
 
   test("should return 'expired' to true if 24 hours have passed", () => {
     saveOnCache({
       storageName: templateInfoForCaching.storageName,
-      expirationDate: sub(new Date(), { hours: 25 }), // Establece 26 horas atrás para garantizar que hayan pasado 24 horas
+      expirationDate: sub(new Date(), { hours: 25 }),
       data: podcastList,
     });
 
@@ -130,6 +130,24 @@ describe("SERVICE --> getCache", () => {
       data: expect.any(Object),
       expirationDate: expect.any(Date),
       expirated: true,
+    });
+  });
+
+  test("should return 'expired' to false if 24 hours DIDN'T passed", () => {
+    saveOnCache({
+      storageName: templateInfoForCaching.storageName,
+      expirationDate: sub(new Date(), { hours: 23 }),
+      data: podcastList,
+    });
+
+    const response = getCache({
+      storageName: templateInfoForCaching.storageName,
+    });
+
+    expect(response).toMatchObject({
+      data: expect.any(Object),
+      expirationDate: expect.any(Date),
+      expirated: false,
     });
   });
 });

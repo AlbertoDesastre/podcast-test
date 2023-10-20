@@ -1,4 +1,4 @@
-import { format, isAfter } from "date-fns";
+import { format, isAfter, sub } from "date-fns";
 
 type getCacheParams = { storageName: string };
 type saveOnCacheParams = {
@@ -43,10 +43,14 @@ function getCache({ storageName }: getCacheParams) {
 }
 
 function have24HoursPassed(dateInString: string) {
-  const savedDate = new Date(dateInString);
-  const today = new Date();
+  // passing dates to milliseconds for a simpler comparison
+  const savedDate = new Date(dateInString).getTime();
+  const today = new Date().getTime();
 
-  return isAfter(today, savedDate);
+  const oneDayInMilliseconds = 24 * 60 * 60 * 1000;
+
+  // the calculus is: if the difference between today and the date you are comparing to is greater that the time a day of 24 hours has, that means that in fact 24 passed
+  return today - savedDate > oneDayInMilliseconds;
 }
 
 export { saveOnCache, getCache };
