@@ -34,7 +34,7 @@ const templateInfoForCaching = {
   expirationDate: new Date(),
 };
 
-/* describe("SERVICE --> saveOnCache", () => {
+describe("SERVICE --> saveOnCache", () => {
   beforeEach(() => {
     localStorage.clear();
   });
@@ -95,27 +95,8 @@ const templateInfoForCaching = {
     expect(JSON.parse(parsedData.data)).toEqual(podcastList);
   });
 });
- */
+
 describe("SERVICE --> getCache", () => {
-  /*  
-OBSOLETE TEST.
-
-Leaving this as a way to show how we got to the latests test by doing TDD.
-
-test("should have an specific response", () => {
-    const response = getCache({
-      storageName: templateInfoForCaching.storageName,
-      getJson: false,
-    });
-
-    expect(response).toMatchObject({
-      data: expect.any(String),
-      expirationDate: expect.any(Date),
-      expirated: expect.any(Boolean),
-    });
-  });
- */
-
   test("should return a data if it was stored already", () => {
     saveOnCache({
       storageName: templateInfoForCaching.storageName,

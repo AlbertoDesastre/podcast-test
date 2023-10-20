@@ -38,6 +38,7 @@ function getCache({ storageName }: getCacheParams) {
     };
   } catch (error) {
     console.error(error);
+    return { data: null, expirationDate: null, expirated: false };
   }
 }
 

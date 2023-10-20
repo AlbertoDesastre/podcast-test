@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 
 import { URLS } from "../../types";
 import "./Dashboard.scss";
-import { useFetch } from "@/services/useFetch";
+import { useFetch } from "@/hooks/useFetch";
 
 function Dashboard({
   loading,
