@@ -25,8 +25,9 @@ function getCache({ storageName }: getCacheParams) {
     let data = localStorage.getItem(storageName);
 
     if (data === null) {
-      console.error("The data that was searched doesn't exist");
-      return { data: null, expirationDate: null, expirated: false };
+      // this was previously a console.error. Since it was making the tests resolution filthy on terminal I instead placed a console.log
+      // console.log("The data that was searched doesn't exist");
+      return { data: null, expirationDate: null, expirated: true };
     }
 
     let parsedData: { data: Object; expirationDate: string } = JSON.parse(data);
@@ -37,8 +38,7 @@ function getCache({ storageName }: getCacheParams) {
       expirated: have24HoursPassed(parsedData.expirationDate),
     };
   } catch (error) {
-    console.error(error);
-    return { data: null, expirationDate: null, expirated: false };
+    return { data: null, expirationDate: null, expirated: true };
   }
 }
 

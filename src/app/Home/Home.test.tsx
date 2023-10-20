@@ -6,6 +6,7 @@ import { PODCAST_NAMING } from "@/types";
 // these modules needed to be exported this way so they can get mocked correctly by jest
 import * as useFetchModule from "@/services/fetchAndCache";
 import * as cacheModule from "@/services/cacheService/cacheService";
+
 import PodcastList from "../PodcastList/PodcastList";
 
 type useFetchResponse = {
@@ -71,14 +72,14 @@ describe("HOME", () => {
     expect(view.container.querySelector("span")).toBeNull();
   });
 
-  test("usePodcast should call useFetch only if there is nothing on cache", () => {
+  test("usePodcast should fetch only if there is nothing on cache", () => {
     // this how the app will start, with absolutely nothing saved on cache
     const emptyPodcasts = cacheModule.getCache({
       storageName: PODCAST_NAMING.LIST,
     });
     expect(emptyPodcasts).toMatchObject({
       data: null,
-      expirated: false,
+      expirated: true,
       expirationDate: null,
     });
 

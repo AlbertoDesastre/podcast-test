@@ -13,27 +13,15 @@ function usePodcasts(url: string) {
       storageName: PODCAST_NAMING.LIST,
     });
 
-    if (cachedPodcasts != null || expirated === false) {
-      setPodcasts(cachedPodcasts);
-      setLoading(false);
-    } else {
-      fetch(url)
-        .then((response) => {
-          return response.json();
-        })
-        .then((rawData) => {
-          saveOnCache({
-            storageName: PODCAST_NAMING.LIST,
-            data: rawData,
-            expirationDate: new Date(),
-          });
-          setPodcasts(rawData);
-          setLoading(false);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+    //  console.log(expirated);
+
+    // if there are no cachedPodcast or, there ARE but they are older than 24 hours... fetch it's coming :)
+    if (!cachedPodcasts || (cachedPodcasts && expirated === true)) {
+      localStorage.removeItem(PODCAST_NAMING.LIST);
+      fetchAndCache({ url, cacheName: PODCAST_NAMING.LIST });
     }
+
+    setLoading(false);
   }, [url]);
 
   return { podcasts, loading };

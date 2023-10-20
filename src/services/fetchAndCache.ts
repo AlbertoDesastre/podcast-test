@@ -3,6 +3,9 @@ import { saveOnCache } from "@/services/cacheService/cacheService";
 type useFetchParams = { url: string; cacheName: string };
 
 function fetchAndCache({ url, cacheName }: useFetchParams) {
+  let fullfilledResponse: unknown;
+
+  console.log("I'm actually fetching the data!");
   fetch(url)
     .then((response) => {
       return response.json();
@@ -13,11 +16,13 @@ function fetchAndCache({ url, cacheName }: useFetchParams) {
         data: rawData,
         expirationDate: new Date(),
       });
-      return rawData;
+      fullfilledResponse = rawData;
     })
     .catch((error) => {
       console.log(error);
     });
+
+  return fullfilledResponse as String | Object;
 }
 
 export { fetchAndCache };

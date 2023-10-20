@@ -1,6 +1,3 @@
-import { useFetch } from "@/services/fetchAndCache";
-import { URLS } from "../../types";
-
 function PodcastList({ podcasts }: { podcasts: any }) {
   return (
     <ul>
