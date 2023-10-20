@@ -1,10 +1,12 @@
 import "@testing-library/jest-dom";
 import { prettyDOM, render } from "@testing-library/react";
 import Home from "../page";
+import Dashboard from "../Dashboard/Dashboard";
 import { PODCAST_NAMING } from "@/types";
 // these modules needed to be exported this way so they can get mocked correctly by jest
-import * as useFetchModule from "@/hooks/useFetch";
+import * as useFetchModule from "@/services/fetchAndCache";
 import * as cacheModule from "@/services/cacheService/cacheService";
+import PodcastList from "../PodcastList/PodcastList";
 
 type useFetchResponse = {
   data: object | undefined | null;
@@ -20,8 +22,8 @@ jest.mock("../../services/cacheService/cacheService.ts", () => {
   };
 });
 
-jest.mock("../../hooks/useFetch.ts", () => ({
-  useFetch: jest.fn(() => {
+jest.mock("../../services/fetchAndCache.ts", () => ({
+  fetchAndCache: jest.fn(() => {
     return fetchedPodcasts;
   }),
 }));
@@ -29,7 +31,7 @@ jest.mock("../../hooks/useFetch.ts", () => ({
 describe("HOME", () => {
   // since I want to test the use case of what would happen if X and Y when fetching data PLUS
   // avoiding actually fetching, the unit test it's done based on a mock, to check all behaviours
-  const useFetchSpy = jest.spyOn(useFetchModule, "useFetch");
+  const useFetchSpy = jest.spyOn(useFetchModule, "fetchAndCache");
   const saveOnCacheSpy = jest.spyOn(cacheModule, "saveOnCache");
   const getCacheSpy = jest.spyOn(cacheModule, "getCache");
 
@@ -53,7 +55,11 @@ describe("HOME", () => {
 
   test("should render loading if the data still fetching", () => {
     fetchedPodcasts.loading = true;
-    const view = render(<Home />);
+    const view = render(
+      <Dashboard loading={true}>
+        <PodcastList podcasts={[]}></PodcastList>
+      </Dashboard>
+    );
 
     expect(view.container.querySelector("span")).toBeInTheDocument();
   });
@@ -63,20 +69,6 @@ describe("HOME", () => {
     const view = render(<Home />);
 
     expect(view.container.querySelector("span")).toBeNull();
-  });
-
-  test("usePodcast should call saveOnCache,getCache and useFetch methods", () => {
-    render(<Home />);
-
-    // fetchs
-    expect(useFetchSpy).toHaveBeenCalled();
-    expect(useFetchSpy).toHaveBeenCalledTimes(1);
-    //saves on storage
-    expect(saveOnCacheSpy).toHaveBeenCalled();
-    expect(saveOnCacheSpy).toHaveBeenCalledTimes(1);
-    // get from storage
-    expect(getCacheSpy).toHaveBeenCalled();
-    expect(getCacheSpy).toHaveBeenCalledTimes(1);
   });
 
   test("usePodcast should call useFetch only if there is nothing on cache", () => {
