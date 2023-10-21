@@ -21,4 +21,28 @@ describe("DASHBOARD", () => {
     // console.log(prettyDOM(text[0]));
     expect(text).toHaveLength(5);
   });
+
+  test("dashboard should render a loader when 'loading' = true", () => {
+    const view = render(
+      <Dashboard loading={true}>
+        <PodcastList podcasts={[]} />
+      </Dashboard>
+    );
+
+    const span = view.container.querySelector("span");
+    // console.log(prettyDOM(li as HTMLElement));
+    expect(span).toBeInTheDocument();
+  });
+
+  test("dashboard should NOT render a loader when 'loading' = false", () => {
+    const view = render(
+      <Dashboard loading={false}>
+        <PodcastList podcasts={[]} />
+      </Dashboard>
+    );
+
+    const span = view.container.querySelector("span");
+    // console.log(prettyDOM(li as HTMLElement));
+    expect(span).toBeNull();
+  });
 });
