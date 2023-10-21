@@ -26,7 +26,7 @@ jest.mock("../../services/cacheService/cacheService.ts", () => {
 });
 
 let mockUsePodcastResponse: usePodcastResponse = {
-  podcasts: null,
+  podcasts: [],
   loading: false,
 };
 

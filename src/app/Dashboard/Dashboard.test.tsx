@@ -7,8 +7,8 @@ import PodcastList from "../PodcastList/PodcastList";
 describe("DASHBOARD", () => {
   test("dashboard should render a list with li", () => {
     const view = render(
-      <Dashboard>
-        <PodcastList podcasts={""} />
+      <Dashboard loading={false}>
+        <PodcastList podcasts={[]} />
       </Dashboard>
     );
 

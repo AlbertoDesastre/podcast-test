@@ -32,8 +32,8 @@ header {
       border-radius: 50%;
 
       background-color: $dark-blue; // Asegúrate de que $dark-blue esté definido
-      animation: expandAndContract 1s linear infinite,
-        fadeAnimation 1s linear infinite;
+      animation: expandAndContract 0.5s linear infinite,
+        fadeAnimation 0.5s linear infinite;
       z-index: 1;
     }
   }
@@ -43,7 +43,7 @@ header {
     transform: scale(1);
   }
   50% {
-    transform: scale(0.7);
+    transform: scale(0.5);
   }
   100% {
     transform: scale(1);

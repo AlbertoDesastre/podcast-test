@@ -3,7 +3,7 @@ import { fetchAndCache } from "@/services/fetchAndCache";
 import { PODCAST_NAMING } from "@/types";
 import { useEffect, useMemo, useState } from "react";
 
-type Podcast = {
+export type Podcast = {
   id: string;
   title: string;
   artist: string;
@@ -13,7 +13,7 @@ type Podcast = {
   }>;
 };
 
-export interface Podcasts {
+export type Podcasts = {
   expirationDate: Date;
   data: {
     status: Object;
@@ -31,16 +31,16 @@ export interface Podcasts {
       };
     };
   };
-}
+};
 
-export interface usePodcastResponse {
-  podcasts: Podcast[] | null;
+export type usePodcastResponse = {
+  podcasts: Podcast[] | [];
   loading: boolean;
-}
+};
 
 function usePodcasts(url: string): usePodcastResponse {
   const [loading, setLoading] = useState(true);
-  const [podcasts, setPodcasts] = useState<Podcast[] | null>(null);
+  const [podcasts, setPodcasts] = useState<Podcast[] | []>([]);
 
   useEffect(() => {
     const { data: cachedPodcasts, expirated } = getCache({

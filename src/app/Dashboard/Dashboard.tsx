@@ -1,8 +1,4 @@
-import { ReactNode } from "react";
-
-import { URLS } from "../../types";
 import "./Dashboard.scss";
-import { useFetch } from "@/services/fetchAndCache";
 
 function Dashboard({
   loading,

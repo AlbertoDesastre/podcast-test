@@ -1,4 +1,6 @@
-function PodcastList({ podcasts }: { podcasts: any }) {
+import { Podcast } from "@/hooks/usePodcasts";
+
+function PodcastList({ podcasts }: { podcasts: Podcast[] }) {
   return (
     <ul>
       <li>
