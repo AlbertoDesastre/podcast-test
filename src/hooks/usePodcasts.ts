@@ -47,19 +47,21 @@ function usePodcasts(url: string): usePodcastResponse {
       storageName: PODCAST_NAMING.LIST,
     });
 
-    //  console.log(expirated);
+    setTimeout(() => {
+      //  console.log(expirated);
 
-    // if there are no cachedPodcast or, there ARE but they are older than 24 hours... fetch it's coming :)
-    if (!cachedPodcasts || (cachedPodcasts && expirated === true)) {
-      localStorage.removeItem(PODCAST_NAMING.LIST);
-      fetchAndCache({ url, cacheName: PODCAST_NAMING.LIST });
-    }
-    const podcastList = parsePodcastList(
-      localStorage.getItem(PODCAST_NAMING.LIST) as string
-    );
+      // if there are no cachedPodcast or, there ARE but they are older than 24 hours... fetch it's coming :)
+      if (!cachedPodcasts || (cachedPodcasts && expirated === true)) {
+        localStorage.removeItem(PODCAST_NAMING.LIST);
+        fetchAndCache({ url, cacheName: PODCAST_NAMING.LIST });
+      }
+      const podcastList = parsePodcastList(
+        localStorage.getItem(PODCAST_NAMING.LIST) as string
+      );
 
-    setPodcasts(podcastList);
-    setLoading(false);
+      setPodcasts(podcastList);
+      setLoading(false);
+    }, 3000);
   }, [url]);
 
   return { podcasts, loading };

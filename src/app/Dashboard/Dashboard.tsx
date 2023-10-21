@@ -1,3 +1,5 @@
+import { Loader } from "../Loader/Loader";
+import { StyledLoader } from "../Loader/StyleLoader";
 import "./Dashboard.scss";
 
 function Dashboard({
@@ -12,9 +14,9 @@ function Dashboard({
       <header>
         <h1>Podcaster</h1>
         {loading && (
-          <div className="loader">
-            <span className="loader-background"></span>
-          </div>
+          <StyledLoader>
+            <Loader />
+          </StyledLoader>
         )}
       </header>
 
