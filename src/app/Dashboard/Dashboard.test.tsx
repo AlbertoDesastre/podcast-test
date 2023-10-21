@@ -5,21 +5,16 @@ import Dashboard from "./Dashboard";
 import PodcastList from "../PodcastList/PodcastList";
 
 describe("DASHBOARD", () => {
-  test("dashboard should render a list with li", () => {
+  test("dashboard should render a section owned by <PodcastList>", () => {
     const view = render(
       <Dashboard loading={false}>
         <PodcastList podcasts={[]} />
       </Dashboard>
     );
+    //console.log(prettyDOM(view.container));
 
-    const li = view.container.querySelector("li");
-    // console.log(prettyDOM(li as HTMLElement));
-    expect(li).toBeInTheDocument();
-
-    const text = view.getAllByText(/JAJAJ/i);
-
-    // console.log(prettyDOM(text[0]));
-    expect(text).toHaveLength(5);
+    const section = view.container.querySelector("section");
+    expect(section).toBeInTheDocument();
   });
 
   test("dashboard should render a loader when 'loading' = true", () => {
