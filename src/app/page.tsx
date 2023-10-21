@@ -14,8 +14,6 @@ export default function Home() {
     URLS.ALL_ORIGIN + `${encodeURIComponent(URLS.PODCAST_LIST)}`
   );
 
-  // console.log(podcasts);
-
   return (
     <Dashboard loading={loading}>
       <PodcastList podcasts={podcasts}></PodcastList>

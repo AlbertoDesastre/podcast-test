@@ -3,17 +3,37 @@ import { fetchAndCache } from "@/services/fetchAndCache";
 import { PODCAST_NAMING } from "@/types";
 import { useEffect, useMemo, useState } from "react";
 
-type PodcastList = {
+type PodcastEntry = {
+  id: { attributes: { "im:id": string } };
+  "im:name": { label: string };
+  "im:artist": { label: string };
+  "im:image": [
+    Array<{
+      label: string;
+    }>
+  ];
+};
+
+export interface Podcasts {
   expirationDate: Date;
   data: {
     status: Object;
-    contents: string;
+    contents: {
+      feed: {
+        entry: PodcastEntry[];
+      };
+    };
   };
-};
+}
 
-function usePodcasts(url: string) {
+export interface usePodcastResponse {
+  podcasts: Podcasts | null;
+  loading: boolean;
+}
+
+function usePodcasts(url: string): usePodcastResponse {
   const [loading, setLoading] = useState(true);
-  const [podcasts, setPodcasts] = useState<PodcastList | null>(null);
+  const [podcasts, setPodcasts] = useState<Podcasts | null>(null);
 
   useEffect(() => {
     const { data: cachedPodcasts, expirated } = getCache({
@@ -38,7 +58,7 @@ function usePodcasts(url: string) {
   return { podcasts, loading };
 }
 
-function parsePodcastList(rawPodcasts: string): PodcastList {
+function parsePodcastList(rawPodcasts: string): Podcasts {
   let podcastsUnformatted = JSON.parse(rawPodcasts);
 
   const podcastList = {
