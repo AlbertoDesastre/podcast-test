@@ -13,6 +13,7 @@ describe("PODCAST LIST", () => {
       images: [
         { attributes: { height: "100" }, label: "Imagen 1" },
         { attributes: { height: "200" }, label: "Imagen 2" },
+        { attributes: { height: "300" }, label: "Imagen 3" },
       ],
     },
     {
@@ -22,6 +23,7 @@ describe("PODCAST LIST", () => {
       images: [
         { attributes: { height: "100" }, label: "Imagen 1" },
         { attributes: { height: "200" }, label: "Imagen 2" },
+        { attributes: { height: "300" }, label: "Imagen 3" },
       ],
     },
     {
@@ -31,6 +33,7 @@ describe("PODCAST LIST", () => {
       images: [
         { attributes: { height: "100" }, label: "Imagen 1" },
         { attributes: { height: "200" }, label: "Imagen 2" },
+        { attributes: { height: "300" }, label: "Imagen 3" },
       ],
     },
   ];

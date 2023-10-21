@@ -4,8 +4,8 @@ header {
   display: flex;
   justify-content: space-between;
 
-  border-bottom: 1px solid rgba(187, 187, 187, 0.68);
-  box-shadow: 1px 1px 1px 1px rgba(165, 160, 160, 0.1);
+  border-bottom: $gray-transparent-border;
+  box-shadow: $dark-box-shadow;
   margin-bottom: 0.5rem;
 
   h1 {
