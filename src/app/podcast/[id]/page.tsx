@@ -36,18 +36,28 @@ function getPodcastsEpisodes() {
     storageName: constants.PODCAST_NAMING.list,
   });
 
-  return { podcastsEpisodeList: cachedPodcastEpisodes as PodcastEpisode[] };
+  return { podcastsEpisodes: cachedPodcastEpisodes as PodcastEpisode[] };
 }
 
 function PodcastDetail({ params }: { params: { id: string } }) {
-  const podcastEpisodes = getPodcastsEpisodes();
+  const { podcastsEpisodes } = getPodcastsEpisodes();
 
-  console.log(podcastEpisodes);
+  const selectedPodcastEpisode = podcastEpisodes.find(
+    (episode) => episode.id === params.id
+  );
+
+  if (!selectedPodcastEpisode) {
+    return (
+      <Dashboard loading={false}>
+        <h1>Podcast Episode Not Found</h1>
+      </Dashboard>
+    );
+  }
 
   return (
     <Dashboard loading={false}>
       <h1>This is some page</h1>
-      <h2>This is the id of the podcast {params.id}</h2>
+      <h2>This is the id of the podcast {selectedPodcastEpisode.id}</h2>
     </Dashboard>
   );
 }
