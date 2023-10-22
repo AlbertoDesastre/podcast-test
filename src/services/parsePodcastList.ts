@@ -1,4 +1,24 @@
-import { Podcast, Podcasts } from "@/hooks/usePodcasts";
+import { Podcast } from "@/app/page";
+
+export type Podcasts = {
+  expirationDate: Date;
+  data: {
+    status: Object;
+    contents: {
+      feed: {
+        entry: Array<{
+          id: { attributes: { "im:id": string } };
+          "im:name": { label: string };
+          "im:artist": { label: string };
+          "im:image": Array<{
+            attributes: { height: string };
+            label: string;
+          }>;
+        }>;
+      };
+    };
+  };
+};
 
 function parsePodcastList(rawPodcasts: string): Podcast[] {
   console.log(rawPodcasts);
