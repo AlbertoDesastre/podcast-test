@@ -1,4 +1,4 @@
-import { podcastsTemplate } from "@/assets";
+import { podcastsLongTemplate } from "@/assets";
 import { getCache, saveOnCache } from "@/services/cacheService/cacheService";
 import { fetchAndCache } from "@/services/fetchAndCache";
 import constants from "@/constants.json";
@@ -75,7 +75,7 @@ function usePodcasts(url: string): usePodcastResponse {
 
     saveOnCache({
       storageName: constants.PODCAST_NAMING.list,
-      data: podcastsTemplate,
+      data: podcastsLongTemplate,
       expirationDate: new Date(),
     });
 
