@@ -1,0 +1,10 @@
+{
+  "URLs": {
+    "allOrigin": "https://api.allorigins.win/get?url=",
+    "podcastList": "https://itunes.apple.com/us/rss/toppodcasts/limit=100/genre=1310/json"
+  },
+  "PODCAST_NAMING": {
+    "list": "podcast-list",
+    "episode": "podcast-episode"
+  }
+}
