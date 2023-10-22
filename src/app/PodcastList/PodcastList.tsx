@@ -1,7 +1,6 @@
 import { Podcast } from "@/hooks/usePodcasts";
 import PodcastCard from "../PodcastCard/PodcastCard";
 import { StyledPodcastCard } from "../PodcastCard/StyledPodcastCard";
-import "./PodcastList.scss";
 import FilterPodcast from "../Filter/Filter";
 
 function PodcastList({ podcasts }: { podcasts: Podcast[] }) {
@@ -9,9 +8,7 @@ function PodcastList({ podcasts }: { podcasts: Podcast[] }) {
 
   return (
     <section>
-      <ul className="podcast-list">
-        {podcastAreLoaded && <FilterPodcast podcasts={podcasts} />}
-      </ul>
+      {podcastAreLoaded && <FilterPodcast podcasts={podcasts} />}
     </section>
   );
 }
