@@ -1,17 +1,15 @@
 import "@testing-library/jest-dom";
-import { fireEvent, prettyDOM, render } from "@testing-library/react";
+import { prettyDOM, render } from "@testing-library/react";
 
-import PodcastOverview from "../PodcastOverview/PodcastOverview";
 import { Podcast } from "@/hooks/usePodcasts";
 import { podcastsTemplate } from "@/assets";
-import Filter from "./PodcastList";
-import PodcastCard from "../PodcastCard/PodcastCard";
+import PodcastList from "./PodcastList";
 
 describe("PODCAST LIST", () => {
   let mockPodcasts: Podcast[] = podcastsTemplate;
 
   test("should render an input", () => {
-    const view = render(<Filter podcasts={mockPodcasts} />);
+    const view = render(<PodcastList podcasts={mockPodcasts} />);
     // console.log(prettyDOM(view.container));
 
     const input = view.container.querySelector("input");
@@ -19,7 +17,7 @@ describe("PODCAST LIST", () => {
   });
 
   test("should render a list <PodcastCard/> component", () => {
-    const view = render(<Filter podcasts={mockPodcasts} />);
+    const view = render(<PodcastList podcasts={mockPodcasts} />);
 
     //   console.log(prettyDOM(view.container));
     const img = view.container.querySelectorAll("img");
