@@ -5,6 +5,7 @@ import PodcastOverview from "./PodcastOverview/PodcastOverview";
 import "../styles/index.scss";
 import { usePodcasts } from "@/hooks/usePodcasts";
 import constants from "../constants.json";
+import PodcastList from "./PodcastList/PodcastList";
 
 export default function Home() {
   // since a loading element has to be shown on HTML owned by dashboard, we have to look for the podcast right at the beginning
@@ -17,7 +18,11 @@ export default function Home() {
 
   return (
     <Dashboard loading={loading}>
-      <PodcastOverview podcasts={podcasts}></PodcastOverview>
+      {!loading && (
+        <PodcastOverview>
+          <PodcastList podcasts={podcasts} />
+        </PodcastOverview>
+      )}
     </Dashboard>
   );
 }

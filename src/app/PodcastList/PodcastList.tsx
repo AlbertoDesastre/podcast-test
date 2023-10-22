@@ -21,7 +21,7 @@ function filterByTitleAndName({
   return filteredPodcasts;
 }
 
-function FilterPodcast({ podcasts }: { podcasts: Podcast[] }) {
+function PodcastList({ podcasts }: { podcasts: Podcast[] }) {
   const [filter, setFilter] = useState("");
   const [matchingPodcasts, setMatchingPodcasts] = useState(podcasts);
   const [countMatchingPodcasts, setCountMatchingPodcasts] = useState(
@@ -66,4 +66,4 @@ function FilterPodcast({ podcasts }: { podcasts: Podcast[] }) {
   );
 }
 
-export default FilterPodcast;
+export default PodcastList;
