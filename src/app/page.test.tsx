@@ -2,7 +2,7 @@ import "@testing-library/jest-dom";
 import { prettyDOM, render } from "@testing-library/react";
 import Home from "./page";
 import Dashboard from "./Dashboard/Dashboard";
-import { PODCAST_NAMING } from "@/types";
+import constants from "@/constants.json";
 import { usePodcastResponse } from "@/hooks/usePodcasts";
 import PodcastList from "./PodcastList/PodcastList";
 // these modules needed to be exported this way so they can get mocked correctly by jest
@@ -85,7 +85,7 @@ describe("HOME", () => {
   test("usePodcast should fetch only if there is nothing on cache", () => {
     // this how the app will start, with absolutely nothing saved on cache
     const emptyPodcasts = cacheModule.getCache({
-      storageName: PODCAST_NAMING.LIST,
+      storageName: constants.PODCAST_NAMING.list,
     });
     expect(emptyPodcasts).toMatchObject({
       data: null,
@@ -95,12 +95,12 @@ describe("HOME", () => {
 
     // I force in this test the case where the uses come another day and he has already a cached version of podcasts
     cacheModule.saveOnCache({
-      storageName: PODCAST_NAMING.LIST,
+      storageName: constants.PODCAST_NAMING.list,
       data: [{}],
       expirationDate: new Date(),
     });
     const cachedPocasts = cacheModule.getCache({
-      storageName: PODCAST_NAMING.LIST,
+      storageName: constants.PODCAST_NAMING.list,
     });
 
     expect(cachedPocasts).toMatchObject({

@@ -1,7 +1,7 @@
 import { podcastsTemplate } from "@/assets";
 import { getCache, saveOnCache } from "@/services/cacheService/cacheService";
 import { fetchAndCache } from "@/services/fetchAndCache";
-import { PODCAST_NAMING } from "@/types";
+import constants from "@/constants.json";
 import { useEffect, useMemo, useState } from "react";
 
 export type Podcast = {
@@ -45,14 +45,14 @@ function usePodcasts(url: string): usePodcastResponse {
 
   useEffect(() => {
     const { data: cachedPodcasts, expirated } = getCache({
-      storageName: PODCAST_NAMING.LIST,
+      storageName: constants.PODCAST_NAMING.list,
     });
 
     //  console.log(expirated);
 
     // if there are no cachedPodcast or, there ARE but they are older than 24 hours... fetch it's coming :)
     if (!cachedPodcasts || (cachedPodcasts && expirated === true)) {
-      localStorage.removeItem(PODCAST_NAMING.LIST);
+      localStorage.removeItem(constants.PODCAST_NAMING.list);
       /* 
       
       TAKE THIS OFF ONCE API IS UP!!
@@ -74,7 +74,7 @@ function usePodcasts(url: string): usePodcastResponse {
     */
 
     saveOnCache({
-      storageName: PODCAST_NAMING.LIST,
+      storageName: constants.PODCAST_NAMING.list,
       data: podcastsTemplate,
       expirationDate: new Date(),
     });
