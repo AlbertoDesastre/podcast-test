@@ -1,18 +1,21 @@
 import { Podcast } from "@/hooks/usePodcasts";
+import { StyledPodcastCard } from "./StyledPodcastCard";
 
 function PodcastCard({ podcast }: { podcast: Podcast }) {
   return (
-    <article>
-      <img alt="podcast-image" src={podcast.images[2].label}></img>
-      <ul>
-        <li>
+    <StyledPodcastCard>
+      <article>
+        {/*
+          Since the real API it's down I will place a hardcoded image
+          
+          <img alt="podcast-image" src={podcast.images[2].label}></img> */}
+        <img alt="podcast-image" src="/assets/imgs/Podcast.jpg" />
+        <div className="box-separator">
           <h2>{podcast.title}</h2>
-        </li>
-        <li>
-          <p>Author: {podcast.artist}</p>
-        </li>
-      </ul>
-    </article>
+          <h3>Author: {podcast.artist}</h3>
+        </div>
+      </article>
+    </StyledPodcastCard>
   );
 }
 

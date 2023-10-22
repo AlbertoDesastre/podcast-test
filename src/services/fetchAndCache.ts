@@ -19,7 +19,7 @@ function fetchAndCache({ url, cacheName }: useFetchParams) {
       fullfilledResponse = rawData;
     })
     .catch((error) => {
-      console.log(error);
+      console.error(error);
     });
 
   return fullfilledResponse as String | Object;

@@ -1,36 +1,43 @@
 import styled from "styled-components";
 
 const grayTransparentBorder = "1px solid rgba(187, 187, 187, 0.68)";
-const darkBoxShadow = "1px rgba(165, 160, 160, 0.1)";
+const smallGrayBoxShadow = "0px 2px 8px rgba(187, 187, 187, 0.68)";
 
 const StyledPodcastCard = styled.li`
   article {
-    width: 15rem;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
 
     img {
+      width: 150px;
+      height: 150px;
       border-radius: 50%;
       position: relative;
-      top: 20px;
+      top: 5rem;
     }
 
-    ul {
-      text-align: center;
-      list-style: none;
-      min-height: 8rem;
-      padding: 5% 3%;
-
+    .box-separator {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      width: 17rem;
       border: ${grayTransparentBorder};
-      box-shadow: 0px 2px 8px rgba(187, 187, 187, 0.68);
-      gap: 10rem;
+      box-shadow: ${smallGrayBoxShadow};
 
       h2 {
+        margin-top: 5rem;
         font-size: 1.5rem;
+        font-weight: 500;
       }
 
-      li:nth-child(2) {
+      h3 {
         margin-top: 0.5rem;
+        font-size: 1rem;
+        font-weight: 500;
+        color: gray;
+        margin-bottom: 0.8rem;
       }
     }
   }

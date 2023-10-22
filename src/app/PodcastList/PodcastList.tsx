@@ -11,11 +11,7 @@ function PodcastList({ podcasts }: { podcasts: Podcast[] }) {
       <ul className="podcast-list">
         {podcastAreLoaded &&
           podcasts.map((podcast) => {
-            return (
-              <StyledPodcastCard key={podcast.id}>
-                <PodcastCard podcast={podcast} />
-              </StyledPodcastCard>
-            );
+            return <PodcastCard key={podcast.id} podcast={podcast} />;
           })}
       </ul>
     </section>

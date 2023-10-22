@@ -1,3 +1,4 @@
+import { podcastsTemplate } from "@/assets";
 import { getCache, saveOnCache } from "@/services/cacheService/cacheService";
 import { fetchAndCache } from "@/services/fetchAndCache";
 import { PODCAST_NAMING } from "@/types";
@@ -52,13 +53,34 @@ function usePodcasts(url: string): usePodcastResponse {
     // if there are no cachedPodcast or, there ARE but they are older than 24 hours... fetch it's coming :)
     if (!cachedPodcasts || (cachedPodcasts && expirated === true)) {
       localStorage.removeItem(PODCAST_NAMING.LIST);
-      fetchAndCache({ url, cacheName: PODCAST_NAMING.LIST });
+      /* 
+      
+      TAKE THIS OFF ONCE API IS UP!!
+
+      Right now Apple API it's not working and I still need to work on the development. I will simulate the API response for now.
+      fetchAndCache({ url, cacheName: PODCAST_NAMING.LIST }); 
+      */
     }
+
+    /*    
+        TAKE THIS OFF ONCE API IS UP!!
+
     const podcastList = parsePodcastList(
       localStorage.getItem(PODCAST_NAMING.LIST) as string
-    );
+    ); 
 
     setPodcasts(podcastList);
+    
+    */
+
+    saveOnCache({
+      storageName: PODCAST_NAMING.LIST,
+      data: podcastsTemplate,
+      expirationDate: new Date(),
+    });
+
+    setPodcasts(cachedPodcasts as Podcast[]);
+
     setLoading(false);
   }, [url]);
 
