@@ -80,13 +80,16 @@ describe("HOME", () => {
     expect(span.length).toEqual(1); // only one span should render, and that's the counter from PodcastOverview
   });
 
+  /* 
+These tests are outdated since the custom hook "usePodcast" doesn't exists anymore
+
   test("usePodcast should fetch only if there is nothing on cache", () => {
     render(<Home />);
     expect(usePodcastSpy).toHaveBeenCalled();
     expect(usePodcastSpy).toHaveBeenCalledTimes(1);
   });
-
-  test("usePodcast should fetch only if there is nothing on cache", () => {
+  
+ test("usePodcast should fetch only if there is nothing on cache", () => {
     // this how the app will start, with absolutely nothing saved on cache
     const emptyPodcasts = cacheModule.getCache({
       storageName: constants.PODCAST_NAMING.list,
@@ -118,5 +121,5 @@ describe("HOME", () => {
 
     expect(usePodcastSpy).toHaveBeenCalled();
     expect(usePodcastSpy).toHaveBeenCalledTimes(1);
-  });
+  }); */
 });

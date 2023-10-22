@@ -41,7 +41,7 @@ export type usePodcastResponse = {
 
 function usePodcasts(url: string): usePodcastResponse {
   const [loading, setLoading] = useState(true);
-  const [podcasts, setPodcasts] = useState<Podcast[] | []>([]);
+  const [podcasts, setPodcasts] = useState<Podcast[]>([]);
 
   useEffect(() => {
     const { data: cachedPodcasts, expirated } = getCache({
