@@ -2,6 +2,7 @@ import { Podcast } from "@/hooks/usePodcasts";
 import { useState, ChangeEvent } from "react";
 import PodcastCard from "../PodcastCard/PodcastCard";
 import "./PodcastList.scss";
+import Link from "next/link";
 
 function filterByTitleAndName({
   textToFind,
@@ -51,7 +52,6 @@ function PodcastList({ podcasts }: { podcasts: Podcast[] }) {
         <input
           data-test-id="filter-input"
           type="text"
-          value={filter}
           onChange={handleInputChange}
           placeholder="Filter podcasts..."
         ></input>
@@ -59,7 +59,11 @@ function PodcastList({ podcasts }: { podcasts: Podcast[] }) {
 
       <ul className="podcast-list">
         {matchingPodcasts.map((podcast) => {
-          return <PodcastCard key={podcast.id} podcast={podcast} />;
+          return (
+            <Link key={podcast.id} href={`/podcast/`}>
+              <PodcastCard podcast={podcast} />
+            </Link>
+          );
         })}
       </ul>
     </>

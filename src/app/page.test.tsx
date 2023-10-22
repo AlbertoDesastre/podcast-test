@@ -1,14 +1,14 @@
 import "@testing-library/jest-dom";
 import { prettyDOM, render } from "@testing-library/react";
 import Home from "./page";
-import Dashboard from "./Dashboard/Dashboard";
+import Dashboard from "./components/Dashboard/Dashboard";
 import constants from "@/constants.json";
 import { usePodcastResponse } from "@/hooks/usePodcasts";
-import PodcastOverview from "./PodcastOverview/PodcastOverview";
+import PodcastOverview from "./components/PodcastOverview/PodcastOverview";
 // these modules needed to be exported this way so they can get mocked correctly by jest
 import * as usePodcastsModule from "@/hooks/usePodcasts";
 import * as cacheModule from "@/services/cacheService/cacheService";
-import PodcastList from "./PodcastList/PodcastList";
+import PodcastList from "./components/PodcastList/PodcastList";
 
 // if we don't require the actual module we won't be able to make spies based in more than one method of the same module
 jest.mock("../services/fetchAndCache", () => {

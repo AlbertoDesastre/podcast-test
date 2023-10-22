@@ -39,4 +39,9 @@ ul.podcast-list {
   justify-content: space-evenly;
   list-style: none;
   gap: 1rem;
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
 }
