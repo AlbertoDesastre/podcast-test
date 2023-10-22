@@ -1,7 +1,23 @@
-import Image from "next/image";
-import styles from "./page.module.scss";
+"use client";
+
 import Dashboard from "./Dashboard/Dashboard";
+import PodcastOverview from "./PodcastOverview/PodcastOverview";
+import "../styles/index.scss";
+import { usePodcasts } from "@/hooks/usePodcasts";
+import constants from "../constants.json";
 
 export default function Home() {
-  return <Dashboard />;
+  // since a loading element has to be shown on HTML owned by dashboard, we have to look for the podcast right at the beginning
+  // and then passing to the components needed.
+
+  const { podcasts, loading } = usePodcasts(
+    constants.URLs.allOrigin +
+      `${encodeURIComponent(constants.URLs.podcastList)}`
+  );
+
+  return (
+    <Dashboard loading={loading}>
+      <PodcastOverview podcasts={podcasts}></PodcastOverview>
+    </Dashboard>
+  );
 }
