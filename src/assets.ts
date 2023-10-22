@@ -764,4 +764,667 @@ const podcastsLongTemplate = [
   },
 ];
 
-export { podcastsTemplate, podcastsLongTemplate };
+const podcastEpisodes = [
+  {
+    id: "1",
+    title: "Rock Music Podcast",
+    artist: "John Smith",
+    episodes: [
+      {
+        episodeTitle: "Episode 1",
+        date: "2023-10-01",
+        duration: "45:30",
+      },
+      {
+        episodeTitle: "Episode 2",
+        date: "2023-10-05",
+        duration: "50:15",
+      },
+      {
+        episodeTitle: "Episode 3",
+        date: "2023-10-10",
+        duration: "48:55",
+      },
+    ],
+  },
+  {
+    id: "2",
+    title: "Cooking Talks",
+    artist: "Emily Johnson",
+    episodes: [
+      {
+        episodeTitle: "Episode 1",
+        date: "2023-09-15",
+        duration: "42:20",
+      },
+      {
+        episodeTitle: "Episode 2",
+        date: "2023-09-20",
+        duration: "48:10",
+      },
+      {
+        episodeTitle: "Episode 3",
+        date: "2023-09-25",
+        duration: "51:30",
+      },
+    ],
+  },
+  {
+    id: "3",
+    title: "Mystery Stories",
+    artist: "David Brown",
+    episodes: [
+      {
+        episodeTitle: "Episode 1",
+        date: "2023-09-05",
+        duration: "47:45",
+      },
+      {
+        episodeTitle: "Episode 2",
+        date: "2023-09-10",
+        duration: "53:00",
+      },
+      {
+        episodeTitle: "Episode 3",
+        date: "2023-09-15",
+        duration: "46:25",
+      },
+    ],
+  },
+  {
+    id: "4",
+    title: "Science Talks",
+    artist: "Sophia Miller",
+    episodes: [
+      {
+        episodeTitle: "Episode 1",
+        date: "2023-08-20",
+        duration: "39:30",
+      },
+      {
+        episodeTitle: "Episode 2",
+        date: "2023-08-25",
+        duration: "44:20",
+      },
+      {
+        episodeTitle: "Episode 3",
+        date: "2023-08-30",
+        duration: "41:15",
+      },
+    ],
+  },
+  {
+    id: "5",
+    title: "Tech News Updates",
+    artist: "Michael Johnson",
+    episodes: [
+      {
+        episodeTitle: "Episode 1",
+        date: "2023-08-10",
+        duration: "35:55",
+      },
+      {
+        episodeTitle: "Episode 2",
+        date: "2023-08-15",
+        duration: "40:40",
+      },
+      {
+        episodeTitle: "Episode 3",
+        date: "2023-08-20",
+        duration: "38:50",
+      },
+    ],
+  },
+  {
+    id: "6",
+    title: "Business Success Stories",
+    artist: "Jennifer Davis",
+    episodes: [
+      {
+        episodeTitle: "Episode 1",
+        date: "2023-11-01",
+        duration: "42:20",
+      },
+      {
+        episodeTitle: "Episode 2",
+        date: "2023-11-05",
+        duration: "45:15",
+      },
+      {
+        episodeTitle: "Episode 3",
+        date: "2023-11-10",
+        duration: "48:55",
+      },
+    ],
+  },
+  {
+    id: "7",
+    title: "Travel Adventures",
+    artist: "Robert Wilson",
+    episodes: [
+      {
+        episodeTitle: "Episode 1",
+        date: "2023-10-01",
+        duration: "39:30",
+      },
+      {
+        episodeTitle: "Episode 2",
+        date: "2023-10-05",
+        duration: "41:45",
+      },
+      {
+        episodeTitle: "Episode 3",
+        date: "2023-10-10",
+        duration: "44:30",
+      },
+    ],
+  },
+  {
+    id: "8",
+    title: "History Uncovered",
+    artist: "Sophia Lee",
+    episodes: [
+      {
+        episodeTitle: "Episode 1",
+        date: "2023-10-15",
+        duration: "37:50",
+      },
+      {
+        episodeTitle: "Episode 2",
+        date: "2023-10-20",
+        duration: "40:20",
+      },
+      {
+        episodeTitle: "Episode 3",
+        date: "2023-10-25",
+        duration: "38:10",
+      },
+    ],
+  },
+  {
+    id: "9",
+    title: "Health and Wellness Tips",
+    artist: "Daniel Anderson",
+    episodes: [
+      {
+        episodeTitle: "Episode 1",
+        date: "2023-09-15",
+        duration: "35:55",
+      },
+      {
+        episodeTitle: "Episode 2",
+        date: "2023-09-20",
+        duration: "37:40",
+      },
+      {
+        episodeTitle: "Episode 3",
+        date: "2023-09-25",
+        duration: "36:50",
+      },
+    ],
+  },
+  {
+    id: "10",
+    title: "Comedy Hour",
+    artist: "Sophia Hernandez",
+    episodes: [
+      {
+        episodeTitle: "Episode 1",
+        date: "2023-09-05",
+        duration: "31:45",
+      },
+      {
+        episodeTitle: "Episode 2",
+        date: "2023-09-10",
+        duration: "34:20",
+      },
+      {
+        episodeTitle: "Episode 3",
+        date: "2023-09-15",
+        duration: "32:30",
+      },
+    ],
+  },
+  {
+    id: "11",
+    title: "Home Improvement",
+    artist: "Emily Parker",
+    episodes: [
+      {
+        episodeTitle: "Episode 1",
+        date: "2023-11-01",
+        duration: "39:45",
+      },
+      {
+        episodeTitle: "Episode 2",
+        date: "2023-11-05",
+        duration: "42:10",
+      },
+      {
+        episodeTitle: "Episode 3",
+        date: "2023-11-10",
+        duration: "38:30",
+      },
+    ],
+  },
+  {
+    id: "12",
+    title: "Gardening Tips",
+    artist: "William Thomas",
+    episodes: [
+      {
+        episodeTitle: "Episode 1",
+        date: "2023-10-01",
+        duration: "36:20",
+      },
+      {
+        episodeTitle: "Episode 2",
+        date: "2023-10-05",
+        duration: "37:40",
+      },
+      {
+        episodeTitle: "Episode 3",
+        date: "2023-10-10",
+        duration: "35:15",
+      },
+    ],
+  },
+  {
+    id: "13",
+    title: "Motivational Talks",
+    artist: "Samantha White",
+    episodes: [
+      {
+        episodeTitle: "Episode 1",
+        date: "2023-09-01",
+        duration: "32:50",
+      },
+      {
+        episodeTitle: "Episode 2",
+        date: "2023-09-05",
+        duration: "34:25",
+      },
+      {
+        episodeTitle: "Episode 3",
+        date: "2023-09-10",
+        duration: "31:15",
+      },
+    ],
+  },
+  {
+    id: "14",
+    title: "Wildlife Encounters",
+    artist: "Matthew Green",
+    episodes: [
+      {
+        episodeTitle: "Episode 1",
+        date: "2023-08-01",
+        duration: "28:40",
+      },
+      {
+        episodeTitle: "Episode 2",
+        date: "2023-08-05",
+        duration: "30:20",
+      },
+      {
+        episodeTitle: "Episode 3",
+        date: "2023-08-10",
+        duration: "29:15",
+      },
+    ],
+  },
+  {
+    id: "15",
+    title: "Space Explorations",
+    artist: "Olivia Moore",
+    episodes: [
+      {
+        episodeTitle: "Episode 1",
+        date: "2023-07-01",
+        duration: "27:30",
+      },
+      {
+        episodeTitle: "Episode 2",
+        date: "2023-07-05",
+        duration: "28:50",
+      },
+      {
+        episodeTitle: "Episode 3",
+        date: "2023-07-10",
+        duration: "26:40",
+      },
+    ],
+  },
+  {
+    id: "16",
+    title: "Finance Insights",
+    artist: "William Clark",
+    episodes: [
+      {
+        episodeTitle: "Episode 1",
+        date: "2023-11-15",
+        duration: "42:30",
+      },
+      {
+        episodeTitle: "Episode 2",
+        date: "2023-11-20",
+        duration: "45:10",
+      },
+      {
+        episodeTitle: "Episode 3",
+        date: "2023-11-25",
+        duration: "39:20",
+      },
+    ],
+  },
+  {
+    id: "17",
+    title: "Art and Creativity",
+    artist: "Sophia Adams",
+    episodes: [
+      {
+        episodeTitle: "Episode 1",
+        date: "2023-10-15",
+        duration: "37:40",
+      },
+      {
+        episodeTitle: "Episode 2",
+        date: "2023-10-20",
+        duration: "40:05",
+      },
+      {
+        episodeTitle: "Episode 3",
+        date: "2023-10-25",
+        duration: "36:50",
+      },
+    ],
+  },
+  {
+    id: "18",
+    title: "Healthy Living",
+    artist: "Daniel Harris",
+    episodes: [
+      {
+        episodeTitle: "Episode 1",
+        date: "2023-09-15",
+        duration: "34:25",
+      },
+      {
+        episodeTitle: "Episode 2",
+        date: "2023-09-20",
+        duration: "36:50",
+      },
+      {
+        episodeTitle: "Episode 3",
+        date: "2023-09-25",
+        duration: "33:15",
+      },
+    ],
+  },
+  {
+    id: "19",
+    title: "Travel Diaries",
+    artist: "Oliver Smith",
+    episodes: [
+      {
+        episodeTitle: "Episode 1",
+        date: "2023-08-15",
+        duration: "29:45",
+      },
+      {
+        episodeTitle: "Episode 2",
+        date: "2023-08-20",
+        duration: "32:10",
+      },
+      {
+        episodeTitle: "Episode 3",
+        date: "2023-08-25",
+        duration: "28:30",
+      },
+    ],
+  },
+  {
+    id: "20",
+    title: "Science Experiments",
+    artist: "Emma Lewis",
+    episodes: [
+      {
+        episodeTitle: "Episode 1",
+        date: "2023-07-15",
+        duration: "26:20",
+      },
+      {
+        episodeTitle: "Episode 2",
+        date: "2023-07-20",
+        duration: "28:45",
+      },
+      {
+        episodeTitle: "Episode 3",
+        date: "2023-07-25",
+        duration: "25:50",
+      },
+    ],
+  },
+  {
+    id: "21",
+    title: "Technology Trends",
+    artist: "Jacob Wilson",
+    episodes: [
+      {
+        episodeTitle: "Episode 1",
+        date: "2023-11-15",
+        duration: "42:30",
+      },
+      {
+        episodeTitle: "Episode 2",
+        date: "2023-11-20",
+        duration: "45:10",
+      },
+      {
+        episodeTitle: "Episode 3",
+        date: "2023-11-25",
+        duration: "39:20",
+      },
+    ],
+  },
+  {
+    id: "22",
+    title: "Nature Explorations",
+    artist: "Ava Martin",
+    episodes: [
+      {
+        episodeTitle: "Episode 1",
+        date: "2023-10-15",
+        duration: "37:40",
+      },
+      {
+        episodeTitle: "Episode 2",
+        date: "2023-10-20",
+        duration: "40:05",
+      },
+      {
+        episodeTitle: "Episode 3",
+        date: "2023-10-25",
+        duration: "36:50",
+      },
+    ],
+  },
+  {
+    id: "23",
+    title: "Business Insights",
+    artist: "Ethan Turner",
+    episodes: [
+      {
+        episodeTitle: "Episode 1",
+        date: "2023-09-15",
+        duration: "34:25",
+      },
+      {
+        episodeTitle: "Episode 2",
+        date: "2023-09-20",
+        duration: "36:50",
+      },
+      {
+        episodeTitle: "Episode 3",
+        date: "2023-09-25",
+        duration: "33:15",
+      },
+    ],
+  },
+  {
+    id: "24",
+    title: "Healthy Cooking",
+    artist: "Olivia Robinson",
+    episodes: [
+      {
+        episodeTitle: "Episode 1",
+        date: "2023-08-15",
+        duration: "29:45",
+      },
+      {
+        episodeTitle: "Episode 2",
+        date: "2023-08-20",
+        duration: "32:10",
+      },
+      {
+        episodeTitle: "Episode 3",
+        date: "2023-08-25",
+        duration: "28:30",
+      },
+    ],
+  },
+  {
+    id: "25",
+    title: "Space Chronicles",
+    artist: "Lucas Parker",
+    episodes: [
+      {
+        episodeTitle: "Episode 1",
+        date: "2023-07-15",
+        duration: "26:20",
+      },
+      {
+        episodeTitle: "Episode 2",
+        date: "2023-07-20",
+        duration: "28:45",
+      },
+      {
+        episodeTitle: "Episode 3",
+        date: "2023-07-25",
+        duration: "25:50",
+      },
+    ],
+  },
+  {
+    id: "26",
+    title: "Adventure Time",
+    artist: "Sophie Davis",
+    episodes: [
+      {
+        episodeTitle: "Episode 1",
+        date: "2023-12-15",
+        duration: "31:45",
+      },
+      {
+        episodeTitle: "Episode 2",
+        date: "2023-12-20",
+        duration: "34:20",
+      },
+      {
+        episodeTitle: "Episode 3",
+        date: "2023-12-25",
+        duration: "29:10",
+      },
+    ],
+  },
+  {
+    id: "27",
+    title: "World History",
+    artist: "Liam White",
+    episodes: [
+      {
+        episodeTitle: "Episode 1",
+        date: "2023-11-15",
+        duration: "36:30",
+      },
+      {
+        episodeTitle: "Episode 2",
+        date: "2023-11-20",
+        duration: "39:05",
+      },
+      {
+        episodeTitle: "Episode 3",
+        date: "2023-11-25",
+        duration: "35:20",
+      },
+    ],
+  },
+  {
+    id: "28",
+    title: "Fashion Trends",
+    artist: "Mia Evans",
+    episodes: [
+      {
+        episodeTitle: "Episode 1",
+        date: "2023-10-15",
+        duration: "32:15",
+      },
+      {
+        episodeTitle: "Episode 2",
+        date: "2023-10-20",
+        duration: "34:50",
+      },
+      {
+        episodeTitle: "Episode 3",
+        date: "2023-10-25",
+        duration: "30:40",
+      },
+    ],
+  },
+  {
+    id: "29",
+    title: "Science Discoveries",
+    artist: "Aiden Clark",
+    episodes: [
+      {
+        episodeTitle: "Episode 1",
+        date: "2023-09-15",
+        duration: "27:55",
+      },
+      {
+        episodeTitle: "Episode 2",
+        date: "2023-09-20",
+        duration: "30:20",
+      },
+      {
+        episodeTitle: "Episode 3",
+        date: "2023-09-25",
+        duration: "26:40",
+      },
+    ],
+  },
+  {
+    id: "30",
+    title: "Travel Journals",
+    artist: "Zoe Smith",
+    episodes: [
+      {
+        episodeTitle: "Episode 1",
+        date: "2023-08-15",
+        duration: "24:50",
+      },
+      {
+        episodeTitle: "Episode 2",
+        date: "2023-08-20",
+        duration: "27:15",
+      },
+      {
+        episodeTitle: "Episode 3",
+        date: "2023-08-25",
+        duration: "23:30",
+      },
+    ],
+  },
+];
+
+export { podcastsTemplate, podcastsLongTemplate, podcastEpisodes };
