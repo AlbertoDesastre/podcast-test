@@ -11,7 +11,7 @@ function Dashboard({
 }) {
   return (
     <main>
-      <header>
+      <header className="main">
         <h1>Podcaster</h1>
         {loading && (
           <StyledLoader>

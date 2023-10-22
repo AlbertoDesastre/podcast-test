@@ -1,7 +1,7 @@
 import "@testing-library/jest-dom";
 import { prettyDOM, render } from "@testing-library/react";
 
-import PodcastList from "../PodcastList/PodcastList";
+import PodcastOverview from "./PodcastOverview";
 import { Podcast } from "@/hooks/usePodcasts";
 
 describe("PODCAST LIST", () => {
@@ -39,7 +39,7 @@ describe("PODCAST LIST", () => {
   ];
 
   test("should not render <PodcastCard>", () => {
-    const view = render(<PodcastList podcasts={[]} />);
+    const view = render(<PodcastOverview podcasts={[]} />);
     // console.log(prettyDOM(view.container));
     const img = view.container.querySelector("img");
 
@@ -47,14 +47,14 @@ describe("PODCAST LIST", () => {
   });
 
   test("should render the elements of a <PodcastCard> if props are not an empty array", () => {
-    const view = render(<PodcastList podcasts={mockPodcasts} />);
+    const view = render(<PodcastOverview podcasts={mockPodcasts} />);
     const img = view.container.querySelector("img");
 
     expect(img).toBeInTheDocument();
   });
 
   test("should render all the elements passed by props", () => {
-    const view = render(<PodcastList podcasts={mockPodcasts} />);
+    const view = render(<PodcastOverview podcasts={mockPodcasts} />);
     const imgs = view.container.querySelectorAll("img");
 
     //console.log(prettyDOM(img as HTMLImageElement));

@@ -1,12 +1,11 @@
 @import "../../styles/index.scss";
 
-header {
+header.main {
   display: flex;
   justify-content: space-between;
 
   border-bottom: $gray-transparent-border;
-  box-shadow: $dark-box-shadow;
-  margin-bottom: 0.5rem;
+  box-shadow: $gray-transparent-border-translucid;
 
   h1 {
     font-weight: 600;

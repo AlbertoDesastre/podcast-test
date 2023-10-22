@@ -4,7 +4,7 @@ import Home from "./page";
 import Dashboard from "./Dashboard/Dashboard";
 import constants from "@/constants.json";
 import { usePodcastResponse } from "@/hooks/usePodcasts";
-import PodcastList from "./PodcastList/PodcastList";
+import PodcastOverview from "./PodcastOverview/PodcastOverview";
 // these modules needed to be exported this way so they can get mocked correctly by jest
 import * as usePodcastsModule from "@/hooks/usePodcasts";
 import * as cacheModule from "@/services/cacheService/cacheService";
@@ -62,7 +62,7 @@ describe("HOME", () => {
     mockUsePodcastResponse.loading = true;
     const view = render(
       <Dashboard loading={true}>
-        <PodcastList podcasts={[]}></PodcastList>
+        <PodcastOverview podcasts={[]}></PodcastOverview>
       </Dashboard>
     );
 

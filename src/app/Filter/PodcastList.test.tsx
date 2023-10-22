@@ -1,10 +1,10 @@
 import "@testing-library/jest-dom";
 import { fireEvent, prettyDOM, render } from "@testing-library/react";
 
-import PodcastList from "../PodcastList/PodcastList";
+import PodcastOverview from "../PodcastOverview/PodcastOverview";
 import { Podcast } from "@/hooks/usePodcasts";
 import { podcastsTemplate } from "@/assets";
-import Filter from "./Filter";
+import Filter from "./PodcastList";
 import PodcastCard from "../PodcastCard/PodcastCard";
 
 describe("PODCAST LIST", () => {

@@ -2,13 +2,13 @@ import "@testing-library/jest-dom";
 import { prettyDOM, render } from "@testing-library/react";
 
 import Dashboard from "./Dashboard";
-import PodcastList from "../PodcastList/PodcastList";
+import PodcastOverview from "../PodcastOverview/PodcastOverview";
 
 describe("DASHBOARD", () => {
   test("dashboard should render a section owned by <PodcastList>", () => {
     const view = render(
       <Dashboard loading={false}>
-        <PodcastList podcasts={[]} />
+        <PodcastOverview podcasts={[]} />
       </Dashboard>
     );
     //console.log(prettyDOM(view.container));
@@ -20,7 +20,7 @@ describe("DASHBOARD", () => {
   test("dashboard should render a loader when 'loading' = true", () => {
     const view = render(
       <Dashboard loading={true}>
-        <PodcastList podcasts={[]} />
+        <PodcastOverview podcasts={[]} />
       </Dashboard>
     );
 
@@ -32,7 +32,7 @@ describe("DASHBOARD", () => {
   test("dashboard should NOT render a loader when 'loading' = false", () => {
     const view = render(
       <Dashboard loading={false}>
-        <PodcastList podcasts={[]} />
+        <PodcastOverview podcasts={[]} />
       </Dashboard>
     );
 

@@ -1,7 +1,7 @@
 "use client";
 
 import Dashboard from "./Dashboard/Dashboard";
-import PodcastList from "./PodcastList/PodcastList";
+import PodcastOverview from "./PodcastOverview/PodcastOverview";
 import "../styles/index.scss";
 import { usePodcasts } from "@/hooks/usePodcasts";
 import constants from "../constants.json";
@@ -17,7 +17,7 @@ export default function Home() {
 
   return (
     <Dashboard loading={loading}>
-      <PodcastList podcasts={podcasts}></PodcastList>
+      <PodcastOverview podcasts={podcasts}></PodcastOverview>
     </Dashboard>
   );
 }

@@ -1,7 +1,7 @@
 import "@testing-library/jest-dom";
 import { prettyDOM, render } from "@testing-library/react";
 
-import PodcastList from "../PodcastList/PodcastList";
+import PodcastOverview from "../PodcastOverview/PodcastOverview";
 import { Podcast } from "@/hooks/usePodcasts";
 import PodcastCard from "./PodcastCard";
 
@@ -40,7 +40,7 @@ describe("PODCAST CARD", () => {
   ];
 
   test("should render the articles owned by <PodcastCard>", () => {
-    const view = render(<PodcastList podcasts={mockPodcasts} />);
+    const view = render(<PodcastOverview podcasts={mockPodcasts} />);
     const articles = view.container.querySelectorAll("article");
 
     expect(articles.length).toEqual(mockPodcasts.length);

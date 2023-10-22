@@ -1,7 +1,7 @@
 import { Podcast } from "@/hooks/usePodcasts";
 import { useState, ChangeEvent } from "react";
 import PodcastCard from "../PodcastCard/PodcastCard";
-import "./Filter.scss";
+import "./PodcastList.scss";
 
 function filterByTitleAndName({
   textToFind,
@@ -24,31 +24,38 @@ function filterByTitleAndName({
 function FilterPodcast({ podcasts }: { podcasts: Podcast[] }) {
   const [filter, setFilter] = useState("");
   const [matchingPodcasts, setMatchingPodcasts] = useState(podcasts);
-
+  const [countMatchingPodcasts, setCountMatchingPodcasts] = useState(
+    podcasts.length
+  );
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     setFilter(event.target.value);
     console.log(event.target.value);
 
     if (event.target.value === "") {
       setMatchingPodcasts(podcasts);
+      setCountMatchingPodcasts(podcasts.length);
     } else {
-      setMatchingPodcasts(
-        filterByTitleAndName({
-          textToFind: filter,
-          podcastArray: podcasts,
-        })
-      );
+      const resultOfFilter = filterByTitleAndName({
+        textToFind: filter,
+        podcastArray: podcasts,
+      });
+      setMatchingPodcasts(resultOfFilter);
+      setCountMatchingPodcasts(resultOfFilter.length);
     }
   };
 
   return (
     <>
-      <input
-        data-test-id="filter-input"
-        type="text"
-        value={filter}
-        onChange={handleInputChange}
-      ></input>
+      <header className="filter-header">
+        <span>{countMatchingPodcasts}</span>
+        <input
+          data-test-id="filter-input"
+          type="text"
+          value={filter}
+          onChange={handleInputChange}
+          placeholder="Filter podcasts..."
+        ></input>
+      </header>
 
       <ul className="podcast-list">
         {matchingPodcasts.map((podcast) => {
