@@ -3,7 +3,7 @@ import { render } from "@testing-library/react";
 import PodcastDetail from "./page";
 import { podcastEpisodes } from "@/assets";
 
-describe("PODCAST DETAIL", () => {
+describe("PODCAST DETAIL - (page --> podcast[id)", () => {
   test("should render the selected podcast details and not render the rest", () => {
     const params = { id: podcastEpisodes[1].id };
     const view = render(<PodcastDetail params={params} />);
@@ -24,6 +24,6 @@ describe("PODCAST DETAIL", () => {
     const params = { id: "90790" };
     const view = render(<PodcastDetail params={params} />);
 
-    expect(view.getByText(/Podcast Episode Not Found/i)).toBeInTheDocument();
+    expect(view.getByText(/Podcast Not Found/i)).toBeInTheDocument();
   });
 });

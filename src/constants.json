@@ -6,7 +6,8 @@
   },
   "PODCAST_NAMING": {
     "list": "podcast-list",
-    "episodes": "podcast-episodes"
+    "episodes": "podcast-episodes",
+    "summaries": "summaries"
   },
   "ROUTES": {
     "podcast-detail": "/podcast/"
