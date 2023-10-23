@@ -1581,195 +1581,181 @@ const episodesDetail = [
   {
     id: "1",
     title: "Rock Music Podcast",
-    summary: "Un emocionante episodio sobre la evolución del rock 'n' roll.",
+    summary: "An exciting episode about the evolution of rock 'n' roll.",
     audio: "",
   },
   {
     id: "2",
     title: "Rock Music Podcast",
-    summary: "Descubre las leyendas del rock en este episodio especial.",
+    summary: "Discover rock legends in this special episode.",
     audio: "",
   },
   {
     id: "3",
     title: "Rock Music Podcast",
-    summary: "Rockea con las canciones más icónicas de todos los tiempos.",
+    summary: "Rock out to the most iconic songs of all time in this episode.",
     audio: "",
   },
-
   {
     id: "4",
     title: "Cooking Talks",
-    summary: "Aprende a cocinar deliciosos platos en este episodio de cocina.",
+    summary: "Learn to cook delicious dishes in this cooking episode.",
     audio: "",
   },
   {
     id: "5",
     title: "Cooking Talks",
-    summary: "Secretos de chefs revelados en este episodio exclusivo.",
+    summary: "Secrets of chefs revealed in this exclusive episode.",
     audio: "",
   },
   {
     id: "6",
     title: "Cooking Talks",
-    summary: "Sabores y aromas que despiertan tus sentidos en este episodio.",
+    summary: "Flavors and aromas that awaken your senses in this episode.",
     audio: "",
   },
-
   {
     id: "7",
     title: "Mystery Stories",
-    summary: "Resuelve misterios oscuros en este episodio intrigante.",
+    summary: "Solve dark mysteries in this intriguing episode.",
     audio: "",
   },
   {
     id: "8",
     title: "Mystery Stories",
-    summary: "Misterios sobrenaturales y detectives en este episodio especial.",
+    summary: "Supernatural mysteries and detectives in this special episode.",
     audio: "",
   },
   {
     id: "9",
     title: "Mystery Stories",
-    summary: "Noche de misterio y suspense en este emocionante episodio.",
+    summary: "Night of mystery and suspense in this exciting episode.",
     audio: "",
   },
-
   {
     id: "10",
     title: "Science Talks",
-    summary: "Exploración de la ciencia y sus maravillas en este episodio.",
+    summary: "Exploration of science and its wonders in this episode.",
     audio: "",
   },
   {
     id: "11",
     title: "Science Talks",
-    summary: "Descubre los avances científicos más recientes en este episodio.",
+    summary: "Discover the latest scientific advances in this episode.",
     audio: "",
   },
   {
     id: "12",
     title: "Science Talks",
-    summary:
-      "Charlas y discusiones sobre la ciencia en este episodio especial.",
+    summary: "Discussions and talks about science in this special episode.",
     audio: "",
   },
-
   {
     id: "13",
     title: "Tech News Updates",
-    summary: "Noticias y actualizaciones tecnológicas en este episodio.",
+    summary: "Technology news and updates in this episode.",
     audio: "",
   },
   {
     id: "14",
     title: "Tech News Updates",
-    summary: "Novedades tecnológicas y gadgets en este emocionante episodio.",
+    summary: "Technological innovations and gadgets in this exciting episode.",
     audio: "",
   },
   {
     id: "15",
     title: "Tech News Updates",
-    summary:
-      "Las últimas tendencias tecnológicas se discuten en este episodio.",
+    summary: "The latest technological trends are discussed in this episode.",
     audio: "",
   },
-
   {
     id: "16",
     title: "Business Success Stories",
-    summary: "Emprendedores exitosos comparten sus historias en este episodio.",
+    summary: "Successful entrepreneurs share their stories in this episode.",
     audio: "",
   },
   {
     id: "17",
     title: "Business Success Stories",
-    summary:
-      "Secretos del éxito empresarial revelados en este episodio especial.",
+    summary: "Secrets of business success revealed in this special episode.",
     audio: "",
   },
   {
     id: "18",
     title: "Business Success Stories",
-    summary:
-      "Aprende de los líderes empresariales en este episodio inspirador.",
+    summary: "Learn from business leaders in this inspiring episode.",
     audio: "",
   },
-
   {
     id: "19",
     title: "Travel Adventures",
-    summary: "Viajes épicos y aventuras asombrosas en este episodio de viaje.",
+    summary: "Epic travels and amazing adventures in this travel episode.",
     audio: "",
   },
   {
     id: "20",
     title: "Travel Adventures",
-    summary: "Descubre destinos impresionantes en este emocionante episodio.",
+    summary: "Discover stunning destinations in this exciting episode.",
     audio: "",
   },
   {
     id: "21",
     title: "Travel Adventures",
-    summary: "Consejos de viaje y experiencias increíbles en este episodio.",
+    summary: "Travel tips and incredible experiences in this episode.",
     audio: "",
   },
-
   {
     id: "22",
     title: "History Uncovered",
-    summary: "Descubre eventos históricos y misterios en este episodio.",
+    summary: "Discover historical events and mysteries in this episode.",
     audio: "",
   },
   {
     id: "23",
     title: "History Uncovered",
-    summary:
-      "Revelaciones sorprendentes de la historia en este episodio especial.",
+    summary: "Surprising revelations from history in this special episode.",
     audio: "",
   },
   {
     id: "24",
     title: "History Uncovered",
-    summary: "Grandes personajes de la historia se exploran en este episodio.",
+    summary: "Great historical figures are explored in this episode.",
     audio: "",
   },
-
   {
     id: "25",
     title: "Health and Wellness Tips",
-    summary: "Consejos para una vida saludable y bienestar en este episodio.",
+    summary: "Tips for a healthy life and well-being in this episode.",
     audio: "",
   },
   {
     id: "26",
     title: "Health and Wellness Tips",
-    summary: "Bienestar mental y físico en este episodio especial.",
+    summary: "Mental and physical well-being in this special episode.",
     audio: "",
   },
   {
     id: "27",
     title: "Health and Wellness Tips",
-    summary: "Secretos para mantenerte saludable en este episodio informativo.",
+    summary: "Secrets to staying healthy in this informative episode.",
     audio: "",
   },
-
   {
     id: "28",
     title: "Comedy Hour",
-    summary: "Risas y diversión en este episodio de comedia.",
+    summary: "Laughter and fun in this comedy episode.",
     audio: "",
   },
   {
     id: "29",
     title: "Comedy Hour",
-    summary: "Actuaciones cómicas y bromas en este episodio especial.",
+    summary: "Comic performances and jokes in this special episode.",
     audio: "",
   },
   {
     id: "30",
     title: "Comedy Hour",
-    summary: "Comedia que te hará reír a carcajadas en este episodio.",
+    summary: "Comedy that will make you laugh out loud in this episode.",
     audio: "",
   },
   {

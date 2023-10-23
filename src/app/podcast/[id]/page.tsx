@@ -26,7 +26,7 @@ type PodcastFullDetail = {
 };
 
 //this is a fake API call as right now the API it's giving a 502 gateaway error
-function getPodcastsEpisodes() {
+export function getPodcastsEpisodes() {
   const { data, expirated } = getCache({
     storageName: constants.PODCAST_NAMING.episodes,
   });
