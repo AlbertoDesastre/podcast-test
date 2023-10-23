@@ -1,7 +1,9 @@
-import { Podcast } from "@/hooks/usePodcasts";
 import { useState, ChangeEvent } from "react";
 import PodcastCard from "../PodcastCard/PodcastCard";
 import "./PodcastList.scss";
+import Link from "next/link";
+import constants from "@/constants.json";
+import { Podcast } from "@/app/page";
 
 function filterByTitleAndName({
   textToFind,
@@ -21,7 +23,7 @@ function filterByTitleAndName({
   return filteredPodcasts;
 }
 
-function FilterPodcast({ podcasts }: { podcasts: Podcast[] }) {
+function PodcastList({ podcasts }: { podcasts: Podcast[] }) {
   const [filter, setFilter] = useState("");
   const [matchingPodcasts, setMatchingPodcasts] = useState(podcasts);
   const [countMatchingPodcasts, setCountMatchingPodcasts] = useState(
@@ -51,7 +53,6 @@ function FilterPodcast({ podcasts }: { podcasts: Podcast[] }) {
         <input
           data-test-id="filter-input"
           type="text"
-          value={filter}
           onChange={handleInputChange}
           placeholder="Filter podcasts..."
         ></input>
@@ -59,11 +60,18 @@ function FilterPodcast({ podcasts }: { podcasts: Podcast[] }) {
 
       <ul className="podcast-list">
         {matchingPodcasts.map((podcast) => {
-          return <PodcastCard key={podcast.id} podcast={podcast} />;
+          return (
+            <Link
+              key={podcast.id}
+              href={constants.ROUTES["podcast-detail"] + `${podcast.id}`}
+            >
+              <PodcastCard podcast={podcast} />
+            </Link>
+          );
         })}
       </ul>
     </>
   );
 }
 
-export default FilterPodcast;
+export default PodcastList;
