@@ -1,4 +1,5 @@
 import { StyledEpisodeSummary } from "./StyledEpisodeSummary";
+import DOMPurify from "dompurify";
 
 function EpisodeSummary({
   title,
@@ -11,14 +12,11 @@ function EpisodeSummary({
   audio: string;
   episodeId: string;
 }) {
-  console.log("this is the episode id you are working with -->", episodeId);
-
+  const sanitizedSummary = DOMPurify.sanitize(summary);
   return (
     <StyledEpisodeSummary>
       <h2>{title}</h2>
-      <p>
-        {summary} + {"This is the episode you are in --> " + episodeId}
-      </p>
+      <p>{sanitizedSummary}</p>
       <audio
         controls
         src={audio ? audio : "/assets/audio/intro_pocoyo.mp3"}
