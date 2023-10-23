@@ -5,14 +5,15 @@ import constants from "@/constants.json";
 import { podcastEpisodes } from "@/assets";
 import Dashboard from "@/app/components/Dashboard/Dashboard";
 import PodcastFigure from "./PodcastFigure/PodcastFigure";
-import PodcastEpisode from "./PodcastEpisodeList/PodcastEpisodeList";
+
 import PodcastEpisodeList from "./PodcastEpisodeList/PodcastEpisodeList";
 import "./page.scss";
 
 export type PodcastEpisode = {
+  id: string;
   episodeTitle: string;
   date: string;
-  duration: string; // por ejemplo, una duración en string es "14:00"
+  duration: string; // for example --> "14:00"
 };
 
 type PodcastFullDetail = {

@@ -7,33 +7,35 @@ function PodcastEpisodeList({
 }: {
   podcastEpisodes: PodcastEpisode[];
 }) {
+  console.log(podcastEpisodes);
+
   return (
     <StyledPodcastEpisodeList>
       <h1>Episodes: {podcastEpisodes.length}</h1>
 
       <div className="table-container">
         <table>
-          <tr>
-            <th>Title</th>
-            <th>Date</th>
-            <th>Duration</th>
-          </tr>
+          <tbody>
+            <tr>
+              <th>Title</th>
+              <th>Date</th>
+              <th>Duration</th>
+            </tr>
 
-          {podcastEpisodes.map((episode) => {
-            return (
-              <tr
-                key={episode.episodeTitle + episode.date + episode.episodeTitle}
-              >
-                <td>
-                  <Link href={`/podcast/1/episode/`}>
-                    {episode.episodeTitle}
-                  </Link>
-                </td>
-                <td> {episode.date}</td>
-                <td> {episode.duration}</td>
-              </tr>
-            );
-          })}
+            {podcastEpisodes.map((episode) => {
+              return (
+                <tr key={episode.id}>
+                  <td>
+                    <Link href={`/podcast/1/episode/${episode.id}`}>
+                      {episode.episodeTitle}
+                    </Link>
+                  </td>
+                  <td> {episode.date}</td>
+                  <td> {episode.duration}</td>
+                </tr>
+              );
+            })}
+          </tbody>
         </table>
       </div>
     </StyledPodcastEpisodeList>
