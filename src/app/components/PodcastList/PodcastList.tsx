@@ -60,14 +60,7 @@ function PodcastList({ podcasts }: { podcasts: Podcast[] }) {
 
       <ul className="podcast-list">
         {matchingPodcasts.map((podcast) => {
-          return (
-            <Link
-              key={podcast.id}
-              href={constants.ROUTES["podcast-detail"] + `${podcast.id}`}
-            >
-              <PodcastCard podcast={podcast} />
-            </Link>
-          );
+          return <PodcastCard key={podcast.id} podcast={podcast} />;
         })}
       </ul>
     </>

@@ -76,7 +76,7 @@ const StyledPodcasFigure = styled.section`
     }
 
     .description-container {
-      overflow: auto;
+      overflow: hidden;
     }
   }
 `;
