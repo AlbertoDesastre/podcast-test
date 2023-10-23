@@ -11,12 +11,18 @@ function EpisodeSummary({
   audio: string;
   episodeId: string;
 }) {
+  console.log("this is the episode id you are working with -->", episodeId);
+
   return (
     <StyledEpisodeSummary>
-      <p>{title}</p>
-      <p>{summary}</p>
-      <p>{audio}</p>
-      <p>{episodeId}</p>
+      <h2>{title}</h2>
+      <p>
+        {summary} + {"This is the episode you are in --> " + episodeId}
+      </p>
+      <audio
+        controls
+        src={audio ? audio : "/assets/audio/intro_pocoyo.mp3"}
+      ></audio>
     </StyledEpisodeSummary>
   );
 }
