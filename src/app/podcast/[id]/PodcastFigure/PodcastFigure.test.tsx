@@ -29,6 +29,7 @@ describe("PODCAST FIGURE", () => {
         title={podcastPassedByProps.title}
         artist={podcastPassedByProps.artist}
         description={podcastPassedByProps.description}
+        episodeId={podcastPassedByProps.id}
       />
     );
 
@@ -46,5 +47,26 @@ describe("PODCAST FIGURE", () => {
     // a podcast that wasn't passed by props
     expect(view.queryByText(podcastNotPassed.title)).toBeNull();
     expect(view.queryByText(podcastNotPassed.artist)).toBeNull();
+  });
+
+  test("should render link based on the podcastId", () => {
+    const podcastPassedByProps = podcastEpisodes[0];
+    const view = render(
+      <PodcastFigure
+        title={podcastPassedByProps.title}
+        artist={podcastPassedByProps.artist}
+        description={podcastPassedByProps.description}
+        episodeId={podcastPassedByProps.id}
+      />
+    );
+
+    const linkToPodcast = view.container.querySelector("a");
+
+    // the main attributes of PodcastFigure
+    expect(linkToPodcast).toBeInTheDocument();
+    expect(linkToPodcast).toHaveAttribute(
+      "href",
+      `/podcast/${podcastPassedByProps.id}`
+    );
   });
 });

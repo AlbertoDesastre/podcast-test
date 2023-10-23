@@ -39,6 +39,7 @@ function EpisodeDetail({
           title={episode.title}
           artist={episode.artist}
           description={episode.description}
+          episodeId={params.episodeId}
         />
 
         <EpisodeSummary

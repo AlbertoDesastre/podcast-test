@@ -9,10 +9,11 @@ import { getEpisodes } from "@/services/getEpisodes";
 
 function PodcastDetail({ params }: { params: { id: string } }) {
   const { episodes } = getEpisodes();
-
   const episode = episodes.find(
     (matchingEpisode) => matchingEpisode.id === params.id
   );
+
+  // console.log(params.id); <-- id of this very podcast
 
   if (!episode) {
     return (
@@ -29,6 +30,7 @@ function PodcastDetail({ params }: { params: { id: string } }) {
           title={episode.title}
           artist={episode.artist}
           description={episode.description}
+          episodeId={params.id}
         />
         <PodcastEpisodeList podcastEpisodes={episode.episodes} />
       </div>
