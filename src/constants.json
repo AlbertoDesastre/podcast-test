@@ -1,10 +1,14 @@
 {
   "URLs": {
     "allOrigin": "https://api.allorigins.win/get?url=",
-    "podcastList": "https://itunes.apple.com/us/rss/toppodcasts/limit=100/genre=1310/json"
+    "podcastList": "https://itunes.apple.com/us/rss/toppodcasts/limit=100/genre=1310/json",
+    "podcastEpisodes": "https://itunes.apple.com/lookup?id=934552872&media=podcast&entity=podcastEpisode&limit=20"
   },
   "PODCAST_NAMING": {
     "list": "podcast-list",
-    "episode": "podcast-episode"
+    "episodes": "podcast-episodes"
+  },
+  "ROUTES": {
+    "podcast-detail": "/podcast/"
   }
 }
