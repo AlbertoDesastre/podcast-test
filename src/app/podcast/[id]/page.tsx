@@ -22,7 +22,7 @@ function PodcastDetail({ params }: { params: { id: string } }) {
       </Dashboard>
     );
   }
-
+  console.log("console log de podcast detail -->  ", params);
   return (
     <Dashboard loading={false}>
       <div className="podcast-episodes-container">
@@ -30,9 +30,12 @@ function PodcastDetail({ params }: { params: { id: string } }) {
           title={episode.title}
           artist={episode.artist}
           description={episode.description}
-          episodeId={params.id}
+          params={params}
         />
-        <PodcastEpisodeList podcastEpisodes={episode.episodes} />
+        <PodcastEpisodeList
+          podcastEpisodes={episode.episodes}
+          params={params}
+        />
       </div>
     </Dashboard>
   );

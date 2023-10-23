@@ -5,14 +5,16 @@ function EpisodeSummary({
   title,
   summary,
   audio,
-  episodeId,
+  params,
 }: {
   title: string;
   summary: string;
   audio: string;
-  episodeId: string;
+  params: { id: string; episodeId: string };
 }) {
   const sanitizedSummary = DOMPurify.sanitize(summary);
+  console.log("log desde Episode summary --> ", params);
+
   return (
     <StyledEpisodeSummary>
       <h2>{title}</h2>

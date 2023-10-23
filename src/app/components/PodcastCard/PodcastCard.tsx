@@ -1,4 +1,4 @@
-import { Podcast } from "@/app/page";
+import { Podcast } from "@/services/getPodcasts";
 import { StyledPodcastCard } from "./StyledPodcastCard";
 
 function PodcastCard({ podcast }: { podcast: Podcast }) {

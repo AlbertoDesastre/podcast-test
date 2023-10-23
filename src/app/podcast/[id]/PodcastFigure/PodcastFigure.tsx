@@ -5,25 +5,27 @@ function PodcastFigure({
   title,
   artist,
   description,
-  episodeId,
+  params,
 }: {
   title: string;
   artist: string;
   description: string;
-  episodeId: string;
+  params: {
+    id: string;
+    episodeId?: string;
+  };
 }) {
-  // console.log(episodeId);
-
+  console.log(params);
   return (
     <StyledPodcasFigure className="podcast-figure">
-      <Link href={`/podcast/${episodeId}`}>
+      <Link href={`/podcast/${params.id}`}>
         <img alt="podcast-image" src="/assets/imgs/Podcast.jpg" />
       </Link>
       <div className="artist-and-title-container">
-        <Link href={`/podcast/${episodeId}`}>
+        <Link href={`/podcast/${params.id}`}>
           <h2> {title}</h2>
         </Link>
-        <Link href={`/podcast/${episodeId}`}>
+        <Link href={`/podcast/${params.id}`}>
           <h3>by {artist}</h3>
         </Link>
       </div>

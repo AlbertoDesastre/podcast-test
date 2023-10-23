@@ -5,8 +5,10 @@ import { PodcastEpisode } from "@/services/getEpisodes";
 
 function PodcastEpisodeList({
   podcastEpisodes,
+  params,
 }: {
   podcastEpisodes: PodcastEpisode[];
+  params: { id: string };
 }) {
   // console.log(podcastEpisodes);
 
@@ -27,7 +29,7 @@ function PodcastEpisodeList({
               return (
                 <tr key={episode.id}>
                   <td>
-                    <Link href={`/podcast/1/episode/${episode.id}`}>
+                    <Link href={`/podcast/${params.id}/episode/${episode.id}`}>
                       {episode.episodeTitle}
                     </Link>
                   </td>

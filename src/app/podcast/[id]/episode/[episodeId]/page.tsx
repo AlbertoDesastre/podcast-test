@@ -39,14 +39,14 @@ function EpisodeDetail({
           title={episode.title}
           artist={episode.artist}
           description={episode.description}
-          episodeId={params.episodeId}
+          params={params}
         />
 
         <EpisodeSummary
           title={summary.title}
           summary={summary.summary}
           audio={summary.audio}
-          episodeId={params.episodeId}
+          params={params}
         ></EpisodeSummary>
       </div>
     </Dashboard>
