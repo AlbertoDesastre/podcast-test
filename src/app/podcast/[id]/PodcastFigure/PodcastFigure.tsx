@@ -1,3 +1,5 @@
+import { StyledPodcasFigure } from "./StyledPodcastFigure";
+
 function PodcastFigure({
   title,
   artist,
@@ -8,12 +10,17 @@ function PodcastFigure({
   description: string;
 }) {
   return (
-    <section>
+    <StyledPodcasFigure className="podcast-figure">
       <img alt="podcast-image" src="/assets/imgs/Podcast.jpg" />
-      <h2> {title}</h2>
-      <h3>{artist}</h3>
-      <p>{description}</p>
-    </section>
+      <div className="artist-and-title-container">
+        <h2> {title}</h2>
+        <h3>by {artist}</h3>
+      </div>
+      <div className="description-container">
+        <h4>Description:</h4>
+        <p>{description}</p>
+      </div>
+    </StyledPodcasFigure>
   );
 }
 

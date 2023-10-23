@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const grayTransparentBorder = "1px solid rgba(187, 187, 187, 0.68)";
-const smallGrayBoxShadow = "0px 2px 8px rgba(187, 187, 187, 0.68)";
+const smallGrayBoxShadow = "0px 3px 8px rgba(187, 187, 187, 0.68)";
 
 const StyledPodcastCard = styled.li`
   article {

@@ -1,0 +1,7 @@
+.podcast-episodes-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 5rem;
+  padding: 1.2rem 0.2rem;
+}

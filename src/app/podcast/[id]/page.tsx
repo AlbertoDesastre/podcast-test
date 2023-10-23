@@ -7,6 +7,7 @@ import Dashboard from "@/app/components/Dashboard/Dashboard";
 import PodcastFigure from "./PodcastFigure/PodcastFigure";
 import PodcastEpisode from "./PodcastEpisodeList/PodcastEpisodeList";
 import PodcastEpisodeList from "./PodcastEpisodeList/PodcastEpisodeList";
+import "./page.scss";
 
 export type PodcastEpisode = {
   episodeTitle: string;
