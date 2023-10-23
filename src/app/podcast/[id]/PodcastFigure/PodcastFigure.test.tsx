@@ -29,7 +29,7 @@ describe("PODCAST FIGURE", () => {
         title={podcastPassedByProps.title}
         artist={podcastPassedByProps.artist}
         description={podcastPassedByProps.description}
-        episodeId={podcastPassedByProps.id}
+        params={{ id: "1", episodeId: podcastPassedByProps.id }}
       />
     );
 
@@ -56,7 +56,7 @@ describe("PODCAST FIGURE", () => {
         title={podcastPassedByProps.title}
         artist={podcastPassedByProps.artist}
         description={podcastPassedByProps.description}
-        episodeId={podcastPassedByProps.id}
+        params={{ id: "1", episodeId: podcastPassedByProps.id }}
       />
     );
 

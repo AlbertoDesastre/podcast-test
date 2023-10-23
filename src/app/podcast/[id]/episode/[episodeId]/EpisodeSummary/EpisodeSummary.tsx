@@ -13,7 +13,7 @@ function EpisodeSummary({
   params: { id: string; episodeId: string };
 }) {
   const sanitizedSummary = DOMPurify.sanitize(summary);
-  console.log("log desde Episode summary --> ", params);
+  // console.log("log from Episode summary --> ", params);
 
   return (
     <StyledEpisodeSummary>

@@ -15,7 +15,6 @@ function PodcastFigure({
     episodeId?: string;
   };
 }) {
-  console.log(params);
   return (
     <StyledPodcasFigure className="podcast-figure">
       <Link href={`/podcast/${params.id}`}>

@@ -1,4 +1,4 @@
-import { Podcast } from "@/app/page";
+import { Podcast } from "./getPodcasts";
 
 export type Podcasts = {
   expirationDate: Date;
@@ -21,7 +21,7 @@ export type Podcasts = {
 };
 
 function parsePodcastList(rawPodcasts: string): Podcast[] {
-  console.log(rawPodcasts);
+  // console.log(rawPodcasts);
   let podcastsUnformatted = JSON.parse(rawPodcasts);
 
   const rawPodcastList: Podcasts = {

@@ -9,7 +9,9 @@ describe("PODCAST EPISODE LIST", () => {
   test("should render the amount of links equal to the amount of episodes", () => {
     const episodes = podcastEpisodes[0].episodes;
 
-    const view = render(<PodcastEpisodeList podcastEpisodes={episodes} />);
+    const view = render(
+      <PodcastEpisodeList podcastEpisodes={episodes} params={{ id: "1" }} />
+    ); // this would emulate the component receiven the ID of the Podcast itself, to then be able to navigate
 
     // if episodes are defined, each episode has an anchor that translater consumer to "podcast/{podcastId/episodes/{episodeId}"
     const anchors = view.container.querySelectorAll("a");
@@ -22,7 +24,10 @@ describe("PODCAST EPISODE LIST", () => {
     const episode3 = podcastEpisodes[0].episodes[2].episodeTitle; // "Episode 3"
 
     const view = render(
-      <PodcastEpisodeList podcastEpisodes={podcastEpisodes[0].episodes} />
+      <PodcastEpisodeList
+        podcastEpisodes={podcastEpisodes[0].episodes}
+        params={{ id: "1" }}
+      /> // this would emulate the component receiven the ID of the Podcast itself, to then be able to navigate
     );
 
     expect(view.queryByText(/Episode 1/i)).toBeInTheDocument();

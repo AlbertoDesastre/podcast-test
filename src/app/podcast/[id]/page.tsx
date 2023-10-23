@@ -13,8 +13,6 @@ function PodcastDetail({ params }: { params: { id: string } }) {
     (matchingEpisode) => matchingEpisode.id === params.id
   );
 
-  // console.log(params.id); <-- id of this very podcast
-
   if (!episode) {
     return (
       <Dashboard loading={false}>
@@ -22,7 +20,7 @@ function PodcastDetail({ params }: { params: { id: string } }) {
       </Dashboard>
     );
   }
-  console.log("console log de podcast detail -->  ", params);
+
   return (
     <Dashboard loading={false}>
       <div className="podcast-episodes-container">
@@ -32,6 +30,7 @@ function PodcastDetail({ params }: { params: { id: string } }) {
           description={episode.description}
           params={params}
         />
+        {/* It's necessary to pass the object params since it will be used to redirect to the correct podcast when navigating */}
         <PodcastEpisodeList
           podcastEpisodes={episode.episodes}
           params={params}
