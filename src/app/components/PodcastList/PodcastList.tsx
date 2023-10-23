@@ -3,7 +3,7 @@ import PodcastCard from "../PodcastCard/PodcastCard";
 import "./PodcastList.scss";
 import Link from "next/link";
 import constants from "@/constants.json";
-import { Podcast } from "@/app/page";
+import { Podcast } from "@/services/getPodcasts";
 
 function filterByTitleAndName({
   textToFind,
@@ -60,14 +60,7 @@ function PodcastList({ podcasts }: { podcasts: Podcast[] }) {
 
       <ul className="podcast-list">
         {matchingPodcasts.map((podcast) => {
-          return (
-            <Link
-              key={podcast.id}
-              href={constants.ROUTES["podcast-detail"] + `${podcast.id}`}
-            >
-              <PodcastCard podcast={podcast} />
-            </Link>
-          );
+          return <PodcastCard key={podcast.id} podcast={podcast} />;
         })}
       </ul>
     </>

@@ -10,34 +10,36 @@ const StyledPodcastCard = styled.li`
     align-items: center;
     text-align: center;
 
-    img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      position: relative;
-      top: 5rem;
-    }
-
-    .box-separator {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      width: 17rem;
-      border: ${grayTransparentBorder};
-      box-shadow: ${smallGrayBoxShadow};
-
-      h2 {
-        margin-top: 5rem;
-        font-size: 1.5rem;
-        font-weight: 500;
+    a {
+      img {
+        width: 153px; // Reducido un 10%
+        height: 153px; // Reducido un 10%
+        border-radius: 50%;
+        position: relative;
+        top: 5.4rem; // Reducido un 10%
       }
 
-      h3 {
-        margin-top: 0.5rem;
-        font-size: 1rem;
-        font-weight: 500;
-        color: gray;
-        margin-bottom: 0.8rem;
+      .box-separator {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        width: 18.36rem;
+        border: ${grayTransparentBorder};
+        box-shadow: ${smallGrayBoxShadow};
+
+        h2 {
+          margin-top: 5.4rem;
+          font-size: 1.62rem;
+          font-weight: 500;
+        }
+
+        h3 {
+          margin-top: 0.54rem;
+          font-size: 1.08rem;
+          font-weight: 500;
+          color: gray;
+          margin-bottom: 0.864rem;
+        }
       }
     }
   }

@@ -1,63 +1,22 @@
 "use client";
 
-import { getCache, saveOnCache } from "@/services/cacheService/cacheService";
-import constants from "@/constants.json";
-import { podcastEpisodes } from "@/assets";
 import Dashboard from "@/app/components/Dashboard/Dashboard";
 import PodcastFigure from "./PodcastFigure/PodcastFigure";
-import PodcastEpisode from "./PodcastEpisodeList/PodcastEpisodeList";
+
 import PodcastEpisodeList from "./PodcastEpisodeList/PodcastEpisodeList";
 import "./page.scss";
-
-export type PodcastEpisode = {
-  episodeTitle: string;
-  date: string;
-  duration: string; // por ejemplo, una duración en string es "14:00"
-};
-
-type PodcastFullDetail = {
-  id: string;
-  title: string;
-  artist: string;
-  description: string;
-  // image
-  episodes: PodcastEpisode[];
-};
-
-//this is a fake API call as right now the API it's giving a 502 gateaway error
-function getPodcastsEpisodes() {
-  const { data, expirated } = getCache({
-    storageName: constants.PODCAST_NAMING.episodes,
-  });
-
-  if (!data || (data && expirated === true)) {
-    localStorage.removeItem(constants.PODCAST_NAMING.episodes);
-
-    saveOnCache({
-      storageName: constants.PODCAST_NAMING.episodes,
-      data: podcastEpisodes,
-      expirationDate: new Date(),
-    });
-  }
-
-  const { data: cachedPodcastEpisodes } = getCache({
-    storageName: constants.PODCAST_NAMING.list,
-  });
-
-  return { podcastsEpisodes: cachedPodcastEpisodes as PodcastFullDetail[] };
-}
+import { getEpisodes } from "@/services/getEpisodes";
 
 function PodcastDetail({ params }: { params: { id: string } }) {
-  const { podcastsEpisodes } = getPodcastsEpisodes();
-
-  const selectedPodcastEpisode = podcastEpisodes.find(
-    (episode) => episode.id === params.id
+  const { episodes } = getEpisodes();
+  const episode = episodes.find(
+    (matchingEpisode) => matchingEpisode.id === params.id
   );
 
-  if (!selectedPodcastEpisode) {
+  if (!episode) {
     return (
       <Dashboard loading={false}>
-        <h1>Podcast Episode Not Found</h1>
+        <h1>Podcast Not Found</h1>
       </Dashboard>
     );
   }
@@ -66,11 +25,16 @@ function PodcastDetail({ params }: { params: { id: string } }) {
     <Dashboard loading={false}>
       <div className="podcast-episodes-container">
         <PodcastFigure
-          title={selectedPodcastEpisode.title}
-          artist={selectedPodcastEpisode.artist}
-          description={selectedPodcastEpisode.description}
+          title={episode.title}
+          artist={episode.artist}
+          description={episode.description}
+          params={params}
         />
-        <PodcastEpisodeList podcastEpisodes={selectedPodcastEpisode.episodes} />
+        {/* It's necessary to pass the object params since it will be used to redirect to the correct podcast when navigating */}
+        <PodcastEpisodeList
+          podcastEpisodes={episode.episodes}
+          params={params}
+        />
       </div>
     </Dashboard>
   );

@@ -10,26 +10,37 @@ const StyledPodcasFigure = styled.section`
     border: ${grayTransparentBorder};
     box-shadow: ${smallGrayBoxShadow};
 
-    width: 80%;
+    width: 90%;
     height: 25rem;
     max-height: 27rem;
     gap: 0.5rem;
     align-items: center;
 
-    img {
-      align-self: center;
-      justify-self: center;
-      width: 176px;
-      height: 150px;
-      border-radius: 5px;
-      margin-top: 1rem;
-      margin-bottom: 0.5rem;
+    a:nth-child(1) {
+      display: grid;
+
+      img {
+        align-self: center;
+        justify-self: center;
+        max-width: 72%;
+        height: 140px;
+        border-radius: 5px;
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: black;
     }
 
     .artist-and-title-container,
     .description-container {
       width: 90%;
+      height: auto;
       border-top: ${grayTransparentBorder};
+      text-justify: auto;
       line-height: 1rem;
       padding: 10px 0;
 
@@ -64,9 +75,9 @@ const StyledPodcasFigure = styled.section`
       padding: 10px 5px;
     }
 
-    /*  .description-container {
-      overflow: auto;
-    } */
+    .description-container {
+      overflow: hidden;
+    }
   }
 `;
 
