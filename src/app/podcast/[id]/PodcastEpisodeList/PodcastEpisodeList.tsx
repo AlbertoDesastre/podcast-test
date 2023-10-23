@@ -7,7 +7,7 @@ function PodcastEpisodeList({
 }: {
   podcastEpisodes: PodcastEpisode[];
 }) {
-  console.log(podcastEpisodes);
+  // console.log(podcastEpisodes);
 
   return (
     <StyledPodcastEpisodeList>

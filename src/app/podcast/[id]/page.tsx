@@ -42,7 +42,7 @@ function getPodcastsEpisodes() {
   }
 
   const { data: cachedPodcastEpisodes } = getCache({
-    storageName: constants.PODCAST_NAMING.list,
+    storageName: constants.PODCAST_NAMING.episodes,
   });
 
   return { podcastsEpisodes: cachedPodcastEpisodes as PodcastFullDetail[] };
@@ -58,7 +58,7 @@ function PodcastDetail({ params }: { params: { id: string } }) {
   if (!selectedPodcastEpisode) {
     return (
       <Dashboard loading={false}>
-        <h1>Podcast Episode Not Found</h1>
+        <h1>Podcast Not Found</h1>
       </Dashboard>
     );
   }
