@@ -12,33 +12,33 @@ const StyledPodcastCard = styled.li`
 
     a {
       img {
-        width: 170px;
-        height: 170px;
+        width: 153px; // Reducido un 10%
+        height: 153px; // Reducido un 10%
         border-radius: 50%;
         position: relative;
-        top: 6rem;
+        top: 5.4rem; // Reducido un 10%
       }
 
       .box-separator {
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
-        width: 20.4rem;
+        width: 18.36rem;
         border: ${grayTransparentBorder};
         box-shadow: ${smallGrayBoxShadow};
 
         h2 {
-          margin-top: 6rem;
-          font-size: 1.8rem;
+          margin-top: 5.4rem;
+          font-size: 1.62rem;
           font-weight: 500;
         }
 
         h3 {
-          margin-top: 0.6rem;
-          font-size: 1.2rem;
+          margin-top: 0.54rem;
+          font-size: 1.08rem;
           font-weight: 500;
           color: gray;
-          margin-bottom: 0.96rem;
+          margin-bottom: 0.864rem;
         }
       }
     }
