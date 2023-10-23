@@ -10,7 +10,9 @@ describe("PODCAST DETAIL", () => {
 
     // the episode given by params:
     expect(view.getByText(podcastEpisodes[1].title)).toBeInTheDocument();
-    expect(view.getByText(podcastEpisodes[1].artist)).toBeInTheDocument();
+    expect(
+      view.getByText("by " + podcastEpisodes[1].artist)
+    ).toBeInTheDocument();
     expect(view.getByText(podcastEpisodes[1].description)).toBeInTheDocument();
 
     // some random episode...
