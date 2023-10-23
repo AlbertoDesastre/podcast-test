@@ -4,16 +4,23 @@ import { getCache, saveOnCache } from "@/services/cacheService/cacheService";
 import constants from "@/constants.json";
 import { podcastEpisodes } from "@/assets";
 import Dashboard from "@/app/components/Dashboard/Dashboard";
+import PodcastFigure from "./PodcastFigure/PodcastFigure";
+import PodcastEpisode from "./PodcastEpisodeList/PodcastEpisodeList";
+import PodcastEpisodeList from "./PodcastEpisodeList/PodcastEpisodeList";
 
-type PodcastEpisode = {
+export type PodcastEpisode = {
+  episodeTitle: string;
+  date: string;
+  duration: string; // por ejemplo, una duración en string es "14:00"
+};
+
+type PodcastFullDetail = {
   id: string;
   title: string;
   artist: string;
-  episodes: Array<{
-    episodeTitle: string;
-    date: Date;
-    duration: string; // por ejemplo, una duración en string es "14:00"
-  }>;
+  description: string;
+  // image
+  episodes: PodcastEpisode[];
 };
 
 //this is a fake API call as right now the API it's giving a 502 gateaway error
@@ -36,7 +43,7 @@ function getPodcastsEpisodes() {
     storageName: constants.PODCAST_NAMING.list,
   });
 
-  return { podcastsEpisodes: cachedPodcastEpisodes as PodcastEpisode[] };
+  return { podcastsEpisodes: cachedPodcastEpisodes as PodcastFullDetail[] };
 }
 
 function PodcastDetail({ params }: { params: { id: string } }) {
@@ -56,8 +63,14 @@ function PodcastDetail({ params }: { params: { id: string } }) {
 
   return (
     <Dashboard loading={false}>
-      <h1>This is some page</h1>
-      <h2>This is the id of the podcast {selectedPodcastEpisode.id}</h2>
+      <div className="podcast-episodes-container">
+        <PodcastFigure
+          title={selectedPodcastEpisode.title}
+          artist={selectedPodcastEpisode.artist}
+          description={selectedPodcastEpisode.description}
+        />
+        <PodcastEpisodeList podcastEpisodes={selectedPodcastEpisode.episodes} />
+      </div>
     </Dashboard>
   );
 }

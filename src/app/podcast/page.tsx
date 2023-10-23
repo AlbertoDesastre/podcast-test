@@ -1,10 +1,6 @@
 "use client";
 
-import { getCache, saveOnCache } from "@/services/cacheService/cacheService";
 import Dashboard from "../components/Dashboard/Dashboard";
-import PodcastEpisode from "./[id]/PodcastEpisodeList/PodcastEpisodeList";
-import constants from "@/constants.json";
-import { podcastEpisodes } from "@/assets";
 
 function PodcastDetails() {
   return (

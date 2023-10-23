@@ -2,9 +2,10 @@ import "@testing-library/jest-dom";
 import { prettyDOM, render } from "@testing-library/react";
 
 import PodcastOverview from "../PodcastOverview/PodcastOverview";
-import { Podcast } from "@/hooks/usePodcasts";
+
 import PodcastCard from "./PodcastCard";
 import PodcastList from "../PodcastList/PodcastList";
+import { Podcast } from "@/app/page";
 
 describe("PODCAST CARD", () => {
   let mockPodcasts: Podcast[] = [

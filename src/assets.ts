@@ -769,6 +769,9 @@ const podcastEpisodes = [
     id: "1",
     title: "Rock Music Podcast",
     artist: "John Smith",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non sapien commodo, convallis turpis efficitur, lacinia dui. Maecenas pharetra vestibulum velit, et dictum dolor.",
+
     episodes: [
       {
         episodeTitle: "Episode 1",
@@ -791,6 +794,9 @@ const podcastEpisodes = [
     id: "2",
     title: "Cooking Talks",
     artist: "Emily Johnson",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non sapien commodo, convallis turpis efficitur, lacinia dui. Maecenas pharetra vestibulum velit, et dictum dolor.",
+
     episodes: [
       {
         episodeTitle: "Episode 1",
@@ -813,6 +819,9 @@ const podcastEpisodes = [
     id: "3",
     title: "Mystery Stories",
     artist: "David Brown",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non sapien commodo, convallis turpis efficitur, lacinia dui. Maecenas pharetra vestibulum velit, et dictum dolor.",
+
     episodes: [
       {
         episodeTitle: "Episode 1",
@@ -835,6 +844,9 @@ const podcastEpisodes = [
     id: "4",
     title: "Science Talks",
     artist: "Sophia Miller",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non sapien commodo, convallis turpis efficitur, lacinia dui. Maecenas pharetra vestibulum velit, et dictum dolor.",
+
     episodes: [
       {
         episodeTitle: "Episode 1",
@@ -857,6 +869,9 @@ const podcastEpisodes = [
     id: "5",
     title: "Tech News Updates",
     artist: "Michael Johnson",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non sapien commodo, convallis turpis efficitur, lacinia dui. Maecenas pharetra vestibulum velit, et dictum dolor.",
+
     episodes: [
       {
         episodeTitle: "Episode 1",
@@ -879,6 +894,9 @@ const podcastEpisodes = [
     id: "6",
     title: "Business Success Stories",
     artist: "Jennifer Davis",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non sapien commodo, convallis turpis efficitur, lacinia dui. Maecenas pharetra vestibulum velit, et dictum dolor.",
+
     episodes: [
       {
         episodeTitle: "Episode 1",
@@ -901,6 +919,9 @@ const podcastEpisodes = [
     id: "7",
     title: "Travel Adventures",
     artist: "Robert Wilson",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non sapien commodo, convallis turpis efficitur, lacinia dui. Maecenas pharetra vestibulum velit, et dictum dolor.",
+
     episodes: [
       {
         episodeTitle: "Episode 1",
@@ -923,6 +944,9 @@ const podcastEpisodes = [
     id: "8",
     title: "History Uncovered",
     artist: "Sophia Lee",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non sapien commodo, convallis turpis efficitur, lacinia dui. Maecenas pharetra vestibulum velit, et dictum dolor.",
+
     episodes: [
       {
         episodeTitle: "Episode 1",
@@ -945,6 +969,9 @@ const podcastEpisodes = [
     id: "9",
     title: "Health and Wellness Tips",
     artist: "Daniel Anderson",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non sapien commodo, convallis turpis efficitur, lacinia dui. Maecenas pharetra vestibulum velit, et dictum dolor.",
+
     episodes: [
       {
         episodeTitle: "Episode 1",
@@ -967,6 +994,9 @@ const podcastEpisodes = [
     id: "10",
     title: "Comedy Hour",
     artist: "Sophia Hernandez",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non sapien commodo, convallis turpis efficitur, lacinia dui. Maecenas pharetra vestibulum velit, et dictum dolor.",
+
     episodes: [
       {
         episodeTitle: "Episode 1",
@@ -989,6 +1019,9 @@ const podcastEpisodes = [
     id: "11",
     title: "Home Improvement",
     artist: "Emily Parker",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non sapien commodo, convallis turpis efficitur, lacinia dui. Maecenas pharetra vestibulum velit, et dictum dolor.",
+
     episodes: [
       {
         episodeTitle: "Episode 1",
@@ -1011,6 +1044,9 @@ const podcastEpisodes = [
     id: "12",
     title: "Gardening Tips",
     artist: "William Thomas",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non sapien commodo, convallis turpis efficitur, lacinia dui. Maecenas pharetra vestibulum velit, et dictum dolor.",
+
     episodes: [
       {
         episodeTitle: "Episode 1",
@@ -1033,6 +1069,9 @@ const podcastEpisodes = [
     id: "13",
     title: "Motivational Talks",
     artist: "Samantha White",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non sapien commodo, convallis turpis efficitur, lacinia dui. Maecenas pharetra vestibulum velit, et dictum dolor.",
+
     episodes: [
       {
         episodeTitle: "Episode 1",
@@ -1055,6 +1094,9 @@ const podcastEpisodes = [
     id: "14",
     title: "Wildlife Encounters",
     artist: "Matthew Green",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non sapien commodo, convallis turpis efficitur, lacinia dui. Maecenas pharetra vestibulum velit, et dictum dolor.",
+
     episodes: [
       {
         episodeTitle: "Episode 1",
@@ -1077,6 +1119,9 @@ const podcastEpisodes = [
     id: "15",
     title: "Space Explorations",
     artist: "Olivia Moore",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non sapien commodo, convallis turpis efficitur, lacinia dui. Maecenas pharetra vestibulum velit, et dictum dolor.",
+
     episodes: [
       {
         episodeTitle: "Episode 1",
@@ -1099,6 +1144,9 @@ const podcastEpisodes = [
     id: "16",
     title: "Finance Insights",
     artist: "William Clark",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non sapien commodo, convallis turpis efficitur, lacinia dui. Maecenas pharetra vestibulum velit, et dictum dolor.",
+
     episodes: [
       {
         episodeTitle: "Episode 1",
@@ -1121,6 +1169,9 @@ const podcastEpisodes = [
     id: "17",
     title: "Art and Creativity",
     artist: "Sophia Adams",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non sapien commodo, convallis turpis efficitur, lacinia dui. Maecenas pharetra vestibulum velit, et dictum dolor.",
+
     episodes: [
       {
         episodeTitle: "Episode 1",
@@ -1143,6 +1194,9 @@ const podcastEpisodes = [
     id: "18",
     title: "Healthy Living",
     artist: "Daniel Harris",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non sapien commodo, convallis turpis efficitur, lacinia dui. Maecenas pharetra vestibulum velit, et dictum dolor.",
+
     episodes: [
       {
         episodeTitle: "Episode 1",
@@ -1165,6 +1219,9 @@ const podcastEpisodes = [
     id: "19",
     title: "Travel Diaries",
     artist: "Oliver Smith",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non sapien commodo, convallis turpis efficitur, lacinia dui. Maecenas pharetra vestibulum velit, et dictum dolor.",
+
     episodes: [
       {
         episodeTitle: "Episode 1",
@@ -1187,6 +1244,9 @@ const podcastEpisodes = [
     id: "20",
     title: "Science Experiments",
     artist: "Emma Lewis",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non sapien commodo, convallis turpis efficitur, lacinia dui. Maecenas pharetra vestibulum velit, et dictum dolor.",
+
     episodes: [
       {
         episodeTitle: "Episode 1",
@@ -1209,6 +1269,9 @@ const podcastEpisodes = [
     id: "21",
     title: "Technology Trends",
     artist: "Jacob Wilson",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non sapien commodo, convallis turpis efficitur, lacinia dui. Maecenas pharetra vestibulum velit, et dictum dolor.",
+
     episodes: [
       {
         episodeTitle: "Episode 1",
@@ -1231,6 +1294,9 @@ const podcastEpisodes = [
     id: "22",
     title: "Nature Explorations",
     artist: "Ava Martin",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non sapien commodo, convallis turpis efficitur, lacinia dui. Maecenas pharetra vestibulum velit, et dictum dolor.",
+
     episodes: [
       {
         episodeTitle: "Episode 1",
@@ -1253,6 +1319,9 @@ const podcastEpisodes = [
     id: "23",
     title: "Business Insights",
     artist: "Ethan Turner",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non sapien commodo, convallis turpis efficitur, lacinia dui. Maecenas pharetra vestibulum velit, et dictum dolor.",
+
     episodes: [
       {
         episodeTitle: "Episode 1",
@@ -1275,6 +1344,9 @@ const podcastEpisodes = [
     id: "24",
     title: "Healthy Cooking",
     artist: "Olivia Robinson",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non sapien commodo, convallis turpis efficitur, lacinia dui. Maecenas pharetra vestibulum velit, et dictum dolor.",
+
     episodes: [
       {
         episodeTitle: "Episode 1",
@@ -1297,6 +1369,9 @@ const podcastEpisodes = [
     id: "25",
     title: "Space Chronicles",
     artist: "Lucas Parker",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non sapien commodo, convallis turpis efficitur, lacinia dui. Maecenas pharetra vestibulum velit, et dictum dolor.",
+
     episodes: [
       {
         episodeTitle: "Episode 1",
@@ -1319,6 +1394,9 @@ const podcastEpisodes = [
     id: "26",
     title: "Adventure Time",
     artist: "Sophie Davis",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non sapien commodo, convallis turpis efficitur, lacinia dui. Maecenas pharetra vestibulum velit, et dictum dolor.",
+
     episodes: [
       {
         episodeTitle: "Episode 1",
@@ -1341,6 +1419,9 @@ const podcastEpisodes = [
     id: "27",
     title: "World History",
     artist: "Liam White",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non sapien commodo, convallis turpis efficitur, lacinia dui. Maecenas pharetra vestibulum velit, et dictum dolor.",
+
     episodes: [
       {
         episodeTitle: "Episode 1",
@@ -1363,6 +1444,9 @@ const podcastEpisodes = [
     id: "28",
     title: "Fashion Trends",
     artist: "Mia Evans",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non sapien commodo, convallis turpis efficitur, lacinia dui. Maecenas pharetra vestibulum velit, et dictum dolor.",
+
     episodes: [
       {
         episodeTitle: "Episode 1",
@@ -1385,6 +1469,9 @@ const podcastEpisodes = [
     id: "29",
     title: "Science Discoveries",
     artist: "Aiden Clark",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non sapien commodo, convallis turpis efficitur, lacinia dui. Maecenas pharetra vestibulum velit, et dictum dolor.",
+
     episodes: [
       {
         episodeTitle: "Episode 1",
@@ -1407,6 +1494,8 @@ const podcastEpisodes = [
     id: "30",
     title: "Travel Journals",
     artist: "Zoe Smith",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non sapien commodo, convallis turpis efficitur, lacinia dui. Maecenas pharetra vestibulum velit, et dictum dolor.",
     episodes: [
       {
         episodeTitle: "Episode 1",
