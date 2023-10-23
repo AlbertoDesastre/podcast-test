@@ -9,14 +9,17 @@ const StyledPodcasFigure = styled.section`
     flex-direction: column;
     border: ${grayTransparentBorder};
     box-shadow: ${smallGrayBoxShadow};
-    max-width: 14rem;
+
+    width: 80%;
+    height: 25rem;
+    max-height: 27rem;
     gap: 0.5rem;
     align-items: center;
 
     img {
       align-self: center;
       justify-self: center;
-      width: 150px;
+      width: 176px;
       height: 150px;
       border-radius: 5px;
       margin-top: 1rem;
@@ -32,6 +35,7 @@ const StyledPodcasFigure = styled.section`
 
       h2 {
         line-height: 1.5rem;
+        font-weight: 800;
       }
 
       h3,
@@ -59,6 +63,10 @@ const StyledPodcasFigure = styled.section`
     .artist-and-title-container {
       padding: 10px 5px;
     }
+
+    /*  .description-container {
+      overflow: auto;
+    } */
   }
 `;
 
