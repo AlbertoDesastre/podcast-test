@@ -1,11 +1,10 @@
-import React from "react";
 import { render } from "@testing-library/react";
-import PodcastDetail from "./page";
-import { podcastEpisodes } from "@/assets";
-import PodcastEpisode from "./page";
+import EpisodeDetail from "./page";
 
 describe("PODCAST SUMMARY - (page --> episode/[episodeId]", () => {
-  test("should pass this test", () => {
-    expect(2 + 1).toEqual(3);
+  test("should render components when episodesDetail is truthy", () => {
+    const view = render(<EpisodeDetail params={{ id: "1" }} />);
+
+    expect(view.getByText("Podcaster")).toBeInTheDocument();
   });
 });
