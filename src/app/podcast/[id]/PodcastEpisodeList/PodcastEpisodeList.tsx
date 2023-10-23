@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { PodcastEpisode } from "../page";
+
 import { StyledPodcastEpisodeList } from "./StyledPodcastEpisodeList";
+import { PodcastEpisode } from "@/services/getEpisodes";
 
 function PodcastEpisodeList({
   podcastEpisodes,

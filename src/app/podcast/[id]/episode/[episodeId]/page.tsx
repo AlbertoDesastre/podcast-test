@@ -3,55 +3,24 @@
 import Dashboard from "@/app/components/Dashboard/Dashboard";
 import PodcastFigure from "../../PodcastFigure/PodcastFigure";
 
-import { episodesDetail } from "@/assets";
-import { getCache, saveOnCache } from "@/services/cacheService/cacheService";
-import constants from "@/constants.json";
 import EpisodeSummary from "./EpisodeSummary/EpisodeSummary";
+import { getSummaries } from "@/services/getSummaries";
+import { getEpisodes } from "@/services/getEpisodes";
 import "./page.scss";
-import { getPodcastsEpisodes } from "../../page";
 
-type EpisodeDetail = {
-  id: string;
-  title: string;
-  summary: string;
-  audio: string;
-};
-
-//this is a fake API call as right now the API it's giving a 502 gateaway error
-function getEpisodesDetail() {
-  const { data, expirated } = getCache({
-    storageName: constants.PODCAST_NAMING.episodesDetail,
-  });
-
-  if (!data || (data && expirated === true)) {
-    localStorage.removeItem(constants.PODCAST_NAMING.episodesDetail);
-
-    saveOnCache({
-      storageName: constants.PODCAST_NAMING.episodesDetail,
-      data: episodesDetail,
-      expirationDate: new Date(),
-    });
-  }
-
-  const { data: cachedEpisodesDetail } = getCache({
-    storageName: constants.PODCAST_NAMING.episodesDetail,
-  });
-
-  return { episodesDetail: cachedEpisodesDetail as EpisodeDetail[] };
-}
 function EpisodeDetail({
   params,
 }: {
   params: { id: string; episodeId: string };
 }) {
-  const { episodesDetail } = getEpisodesDetail();
-  const { podcastsEpisodes } = getPodcastsEpisodes();
+  const { summaries } = getSummaries();
+  const { episodes } = getEpisodes();
   //console.log(params);
 
-  const summary = episodesDetail.find(
+  const summary = summaries.find(
     (matchingSummary) => matchingSummary.id === params.id
   );
-  const episode = podcastsEpisodes.find(
+  const episode = episodes.find(
     (matchingEpisode) => matchingEpisode.id === params.episodeId
   );
 
