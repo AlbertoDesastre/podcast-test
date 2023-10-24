@@ -1,8 +1,30 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# eCommerce - Node.js Project with TypeScript, MySQL, and JWT Authentication
 
-## Getting Started
+![Next.js](https://img.shields.io/badge/Next.js-v13.4.19-black.svg)
+![React](https://img.shields.io/badge/React-v18-blue.svg)
+![Styled Components](https://img.shields.io/badge/Styled%20Components-v6.1.0-red.svg)
+![Dompurify](https://img.shields.io/badge/Dompurify-v3.0.6-orange.svg)
+![Date-fns](https://img.shields.io/badge/Date-fns-v2.30.0-blue.svg)
 
-First, run the development server:
+## Check it on live!
+
+https://my-podcast-test.netlify.app/
+
+## Instalation
+
+Install the dependencies by running:
+
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+```
+
+## Running development mode
+
+For running the development server:
 
 ```bash
 npm run dev
@@ -10,27 +32,28 @@ npm run dev
 yarn dev
 # or
 pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Running on production mode
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. Prepare the project with a production build with:
 
-## Learn More
+```bash
+npm run build
+# or
+yarn run build
+# or
+pnpm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+2. And finally run production mode with:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```bash
+npm run start
+# or
+yarn run start
+# or
+pnpm run start
+```
