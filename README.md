@@ -1,4 +1,4 @@
-# eCommerce - Node.js Project with TypeScript, MySQL, and JWT Authentication
+# Podcast webpage using React & Next with Typescript!
 
 ![Next.js](https://img.shields.io/badge/Next.js-v13.4.19-black.svg)
 ![React](https://img.shields.io/badge/React-v18-blue.svg)
