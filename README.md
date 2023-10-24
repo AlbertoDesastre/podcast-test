@@ -4,7 +4,6 @@
 ![React](https://img.shields.io/badge/React-v18-blue.svg)
 ![Styled Components](https://img.shields.io/badge/Styled%20Components-v6.1.0-red.svg)
 ![Dompurify](https://img.shields.io/badge/Dompurify-v3.0.6-orange.svg)
-![Date-fns](https://img.shields.io/badge/Date-fns-v2.30.0-blue.svg)
 
 ## Check it on live!
 
