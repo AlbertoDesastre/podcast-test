@@ -1,16 +1,16 @@
 import "@testing-library/jest-dom";
-import { prettyDOM, render } from "@testing-library/react";
+import { fireEvent, prettyDOM, render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+
 import Home from "./page";
 import Dashboard from "./components/Dashboard/Dashboard";
 import PodcastOverview from "./components/PodcastOverview/PodcastOverview";
 import PodcastList from "./components/PodcastList/PodcastList";
-
-let mockUsePodcastResponse = {
-  podcasts: [],
-  loading: false,
-};
+import { podcastsTemplate } from "@/assets";
+import { Podcast } from "@/services/getPodcasts";
 
 describe("HOME", () => {
+  let mockPodcasts: Podcast[] = podcastsTemplate;
   beforeEach(() => {
     jest.clearAllMocks();
   });
@@ -21,23 +21,21 @@ describe("HOME", () => {
 
   // NOTE FOR SELF IMPROVEMENT --> use "screen" methods instead of selecting the container. Recommendation from Kent C. Dodds.
 
-  /* 
-  The benefit of using screen is you no longer need to keep the render call destructure up-to-date as you add/remove the queries you need. 
-  You only need to type screen. and let your editor's magic autocomplete take care of the rest.
-  */
+  // The benefit of using screen is you no longer need to keep the render call destructure up-to-date as you add/remove the queries you need.
+  // You only need to type screen. and let your editor's magic autocomplete take care of the rest.
+
   test("should render <main> tag, owned by Dashboard component", () => {
-    const view = render(<Home />);
+    render(<Home />);
 
     // main it's rendered on Dashboard component
-    const main = view.container.querySelector("main");
+    const main = screen.queryByRole("main");
 
     // console.log(prettyDOM(li as HTMLElement));
     expect(main).toBeInTheDocument();
   });
 
   test("should render loading if the data still fetching", () => {
-    mockUsePodcastResponse.loading = true;
-    const view = render(
+    render(
       <Dashboard loading={true}>
         <PodcastOverview>
           <PodcastList podcasts={[]}></PodcastList>
@@ -45,22 +43,45 @@ describe("HOME", () => {
       </Dashboard>
     );
 
-    expect(view.container.querySelector("span")).toBeInTheDocument();
+    expect(screen.getByTestId("loader")).toBeInTheDocument();
   });
 
   test("should NOT render loading when data has been fetched", () => {
-    mockUsePodcastResponse.loading = false;
-
-    const view = render(
-      <Dashboard loading={mockUsePodcastResponse.loading}>
+    render(
+      <Dashboard loading={false}>
         <PodcastOverview>
           <PodcastList podcasts={[]}></PodcastList>
         </PodcastOverview>
       </Dashboard>
     );
 
-    const span = view.container.querySelectorAll("span");
-    expect(span.length).toEqual(1); // only one span should render, and that's the counter from PodcastOverview
+    expect(() => screen.getByTestId("loader")).toThrow();
+  });
+
+  test("should stay on the same route if it clicks the 'Podcaster'that has route '/' in it ", async () => {
+    const user = userEvent.setup();
+
+    render(
+      <Dashboard loading={false}>
+        <PodcastOverview>
+          <PodcastList podcasts={mockPodcasts}></PodcastList>
+        </PodcastOverview>
+      </Dashboard>
+    );
+
+    // notice that the H1 that has "Podcaster" text gets treated as a "link" because of being wrapped inside a link
+    const home = screen.getByRole("link", { name: "Podcaster" });
+    expect(home).toBeInTheDocument();
+
+    //mockPodcasts[0].title === "Rock Music Podcast"
+    const podcast = screen.getByText(/Rock Music Podcast/i);
+    expect(podcast).toBeInTheDocument();
+
+    // user click on the 'home' button that redirects to '/' route (it's actually the very same page they are on it right now)
+    await user.click(home);
+
+    // user should be on the same route that has the list of podcasts
+    expect(podcast).toBeInTheDocument();
   });
 
   /* 
