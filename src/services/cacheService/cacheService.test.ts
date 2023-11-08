@@ -34,6 +34,10 @@ const templateInfoForCaching = {
   expirationDate: new Date(),
 };
 
+// NOTE TO SELF IMPROVEMENT --> These are great test for functions but this is probably overkill.
+// I have to focus on testing what the user it's going to see. Meaning I would have to test the component where this
+// functions it's taking action, and test how the component reacts to it's different responses.
+
 describe("SERVICE --> saveOnCache", () => {
   beforeEach(() => {
     localStorage.clear();

@@ -40,4 +40,7 @@ describe("DASHBOARD", () => {
     // console.log(prettyDOM(li as HTMLElement));
     expect(span).toBeNull();
   });
+
+  // NOTE TO SELFIMPROVEMENT --> Another great test would be to know if Dashboard renders loading and at the same
+  // time it's rendering it's children.
 });

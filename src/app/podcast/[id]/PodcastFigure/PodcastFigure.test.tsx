@@ -5,6 +5,8 @@ import { podcastEpisodes } from "@/assets";
 import PodcastDetail from "../page";
 import PodcastFigure from "./PodcastFigure";
 
+// the same note for improvement as ever. Also I should have tested the redirections when clicking on a Link
+
 describe("PODCAST FIGURE", () => {
   test("should render the selected podcast details and not render the rest", () => {
     const params = { id: podcastEpisodes[1].id };

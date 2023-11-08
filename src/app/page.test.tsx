@@ -19,6 +19,12 @@ describe("HOME", () => {
     localStorage.clear();
   });
 
+  // NOTE FOR SELF IMPROVEMENT --> use "screen" methods instead of selecting the container. Recommendation from Kent C. Dodds.
+
+  /* 
+  The benefit of using screen is you no longer need to keep the render call destructure up-to-date as you add/remove the queries you need. 
+  You only need to type screen. and let your editor's magic autocomplete take care of the rest.
+  */
   test("should render <main> tag, owned by Dashboard component", () => {
     const view = render(<Home />);
 
@@ -44,14 +50,21 @@ describe("HOME", () => {
 
   test("should NOT render loading when data has been fetched", () => {
     mockUsePodcastResponse.loading = false;
-    const view = render(<Home />);
+
+    const view = render(
+      <Dashboard loading={mockUsePodcastResponse.loading}>
+        <PodcastOverview>
+          <PodcastList podcasts={[]}></PodcastList>
+        </PodcastOverview>
+      </Dashboard>
+    );
 
     const span = view.container.querySelectorAll("span");
     expect(span.length).toEqual(1); // only one span should render, and that's the counter from PodcastOverview
   });
 
   /* 
-These tests are outdated since the custom hook "usePodcast" doesn't exists anymore
+  NOTE FOR SELF IMPROVEMENT --> These tests should be modified in order to check how the components reacts to having/not having cached podcasts and other behaviours.
 
   test("usePodcast should fetch only if there is nothing on cache", () => {
     render(<Home />);

@@ -5,7 +5,7 @@ import PodcastOverview from "../PodcastOverview/PodcastOverview";
 
 import PodcastCard from "./PodcastCard";
 import PodcastList from "../PodcastList/PodcastList";
-import { Podcast } from "@/app/page";
+import { Podcast } from "@/services/getPodcasts";
 
 describe("PODCAST CARD", () => {
   let mockPodcasts: Podcast[] = [
@@ -40,7 +40,8 @@ describe("PODCAST CARD", () => {
       ],
     },
   ];
-
+  /* 
+I don't think this is a test that should be owned by PodcastCard
   test("should render the articles owned by <PodcastCard>", () => {
     const view = render(
       <PodcastOverview>
@@ -50,7 +51,7 @@ describe("PODCAST CARD", () => {
     const articles = view.container.querySelectorAll("article");
 
     expect(articles.length).toEqual(mockPodcasts.length);
-  });
+  }); */
 
   test("should render the correct elements of the Podcast passed", () => {
     const view = render(<PodcastCard podcast={mockPodcasts[0]} />);

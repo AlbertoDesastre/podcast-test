@@ -8,6 +8,7 @@ import { Podcast, getPodcasts } from "@/services/getPodcasts";
 import { isApiDown } from "@/services/isApiDown";
 import constants from "@/constants.json";
 import "../styles/index.scss";
+
 export default function Home() {
   const [loading, setLoading] = useState(true);
   const [podcasts, setPodcasts] = useState<Podcast[]>([]);

@@ -2,6 +2,7 @@ import { prettyDOM, render } from "@testing-library/react";
 import EpisodeSummary from "./EpisodeSummary";
 import { episodesDetail } from "@/assets";
 
+// should have checked the redirection also, and check if all the properties passed are there
 describe("EPISODE DETAI - (page --> episode/[episodeId]", () => {
   const mockEpisodeSummary = episodesDetail[0];
 
@@ -14,6 +15,7 @@ describe("EPISODE DETAI - (page --> episode/[episodeId]", () => {
         summary={mockEpisodeSummary.summary}
         audio={mockEpisodeSummary.audio}
         episodeId={mockEpisodeSummary.id}
+        //  CORRECT THIS --> params: { id: string; episodeId: string }
       />
     );
 

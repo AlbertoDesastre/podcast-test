@@ -5,6 +5,7 @@ import Link from "next/link";
 import constants from "@/constants.json";
 import { Podcast } from "@/services/getPodcasts";
 
+// this could have been it's own hook, and export all the necessary functions, setters, and etc...
 function filterByTitleAndName({
   textToFind,
   podcastArray,

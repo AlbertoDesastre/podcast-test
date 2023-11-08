@@ -4,7 +4,7 @@ import { prettyDOM, render } from "@testing-library/react";
 import PodcastOverview from "./PodcastOverview";
 
 import PodcastList from "../PodcastList/PodcastList";
-import { Podcast } from "@/app/page";
+import { Podcast } from "@/services/getPodcasts";
 
 describe("PODCAST LIST", () => {
   let mockPodcasts: Podcast[] = [
@@ -39,6 +39,14 @@ describe("PODCAST LIST", () => {
       ],
     },
   ];
+
+  // NOTE FOR SELF IMPROVEMENT --> use "screen" methods instead of selecting the container. Recommendation from Kent C. Dodds.
+  // Also! Try to get things by role and pass as options the "names". Check if this applies for images...
+
+  /* 
+  The benefit of using screen is you no longer need to keep the render call destructure up-to-date as you add/remove the queries you need. 
+  You only need to type screen. and let your editor's magic autocomplete take care of the rest.
+  */
 
   test("should not render <PodcastCard>", () => {
     const view = render(

@@ -5,6 +5,8 @@ import { podcastEpisodes } from "@/assets";
 import PodcastDetail from "../page";
 import PodcastEpisodeList from "./PodcastEpisodeList";
 
+// NOTE TO SELF IMPROVEMENT --> Also should have tested the redirections when pressing a LiNK
+
 describe("PODCAST EPISODE LIST", () => {
   test("should render the amount of links equal to the amount of episodes", () => {
     const episodes = podcastEpisodes[0].episodes;
