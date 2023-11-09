@@ -1,12 +1,12 @@
 import "@testing-library/jest-dom";
-import { prettyDOM, render } from "@testing-library/react";
+import { prettyDOM, render, screen } from "@testing-library/react";
 
 import PodcastOverview from "./PodcastOverview";
 
 import PodcastList from "../PodcastList/PodcastList";
 import { Podcast } from "@/services/getPodcasts";
 
-describe("PODCAST LIST", () => {
+describe("PODCAST OVERVIEW", () => {
   let mockPodcasts: Podcast[] = [
     {
       id: "1",
@@ -49,37 +49,24 @@ describe("PODCAST LIST", () => {
   */
 
   test("should not render <PodcastCard>", () => {
-    const view = render(
+    render(
       <PodcastOverview>
         <PodcastList podcasts={[]} />
       </PodcastOverview>
     );
-    // console.log(prettyDOM(view.container));
-    const img = view.container.querySelector("img");
 
-    expect(img).toBeNull();
-  });
-
-  test("should render the elements of a <PodcastCard> if props are not an empty array", () => {
-    const view = render(
-      <PodcastOverview>
-        <PodcastList podcasts={mockPodcasts} />
-      </PodcastOverview>
-    );
-    const img = view.container.querySelector("img");
-
-    expect(img).toBeInTheDocument();
+    expect(() => screen.getByText(/Author/i)).toThrow();
   });
 
   test("should render all the elements passed by props", () => {
-    const view = render(
+    render(
       <PodcastOverview>
         <PodcastList podcasts={mockPodcasts} />
       </PodcastOverview>
     );
-    const imgs = view.container.querySelectorAll("img");
+    const authors = screen.getAllByText(/Author/i);
 
     //console.log(prettyDOM(img as HTMLImageElement));
-    expect(imgs.length).toEqual(mockPodcasts.length);
+    expect(authors.length).toEqual(mockPodcasts.length);
   });
 });
