@@ -15,7 +15,6 @@ function EpisodeDetail({
 }) {
   const { summaries } = getSummaries();
   const { episodes } = getEpisodes();
-  //console.log(params);
 
   const summary = summaries.find(
     (matchingSummary) => matchingSummary.id === params.id
