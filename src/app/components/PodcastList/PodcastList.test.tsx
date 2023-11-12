@@ -4,8 +4,6 @@ import { fireEvent, prettyDOM, render, screen } from "@testing-library/react";
 import { podcastsTemplate } from "@/assets";
 import PodcastList from "./PodcastList";
 import { Podcast } from "@/services/getPodcasts";
-import userEvent from "@testing-library/user-event";
-import { act } from "react-dom/test-utils";
 
 describe("PODCAST LIST", () => {
   let mockPodcasts: Podcast[] = podcastsTemplate;
@@ -63,6 +61,23 @@ describe("PODCAST LIST", () => {
     expect(() => screen.getByText(/cooking talks/i)).toThrow();
   });
 
-  // should have tested the inputs of the users, and check if the podcasts shown change when they make any change to the input
-  // also this would help to see synchronism issues
+  test("should show the received podcast list if the input it's an empty string '' after searching for the first time ", () => {
+    render(<PodcastList podcasts={mockPodcasts} />);
+
+    const input: HTMLInputElement = screen.getByTestId("filter-input");
+
+    fireEvent.change(input, { target: { value: "science" } });
+
+    // I should receive only the podcasts with title or description with 'science'
+    expect(screen.getByText(/science/i)).toBeInTheDocument();
+
+    expect(() => screen.getByText(/cooking talks/i)).toThrow();
+
+    // user deletes all the input to start the search again
+    fireEvent.change(input, { target: { value: "" } });
+
+    // every podcast has the subtitle "Author: " on their remplate
+
+    expect(screen.getAllByText(/author/i).length).toEqual(mockPodcasts.length);
+  });
 });

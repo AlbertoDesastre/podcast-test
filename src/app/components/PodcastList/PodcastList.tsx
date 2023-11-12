@@ -1,10 +1,8 @@
-import { useState, ChangeEvent, useEffect } from "react";
+import { ChangeEvent } from "react";
 import PodcastCard from "../PodcastCard/PodcastCard";
 import "./PodcastList.scss";
 import { Podcast } from "@/services/getPodcasts";
 import useFilterPodcasts from "./useFilterPodcast";
-
-// this could have been it's own hook, and export all the necessary functions, setters, and etc...
 
 function PodcastList({ podcasts }: { podcasts: Podcast[] }) {
   const { filterByNameAndTitle, matchingPodcasts, podcastCount } =
