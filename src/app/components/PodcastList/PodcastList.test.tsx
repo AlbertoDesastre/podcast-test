@@ -1,5 +1,5 @@
 import "@testing-library/jest-dom";
-import { prettyDOM, render } from "@testing-library/react";
+import { fireEvent, prettyDOM, render, screen } from "@testing-library/react";
 
 import { podcastsTemplate } from "@/assets";
 import PodcastList from "./PodcastList";
@@ -15,21 +15,69 @@ describe("PODCAST LIST", () => {
   You only need to type screen. and let your editor's magic autocomplete take care of the rest.
   */
   test("should render an input", () => {
-    const view = render(<PodcastList podcasts={mockPodcasts} />);
-    // console.log(prettyDOM(view.container));
+    render(<PodcastList podcasts={mockPodcasts} />);
 
-    const input = view.container.querySelector("input");
+    const input = screen.getByPlaceholderText(/Filter podcasts.../i);
     expect(input).toBeInTheDocument();
   });
 
   test("should render a list <PodcastCard/> component", () => {
-    const view = render(<PodcastList podcasts={mockPodcasts} />);
+    render(<PodcastList podcasts={mockPodcasts} />);
 
-    //   console.log(prettyDOM(view.container));
-    const img = view.container.querySelectorAll("img");
-    expect(img.length).toEqual(mockPodcasts.length);
+    const authors = screen.getAllByText(/Author/i);
+
+    //console.log(prettyDOM(img as HTMLImageElement));
+    expect(authors.length).toEqual(mockPodcasts.length);
   });
 
-  // should have tested the inputs of the users, and check if the podcasts shown change when they make any change to the input
-  // also this would help to see synchronism issues
+  test("should render a list <PodcastCard/> component", () => {
+    render(<PodcastList podcasts={mockPodcasts} />);
+
+    const authors = screen.getAllByText(/Author/i);
+
+    //console.log(prettyDOM(img as HTMLImageElement));
+    expect(authors.length).toEqual(mockPodcasts.length);
+  });
+
+  test("should show what the user has typed on the input", () => {
+    render(<PodcastList podcasts={mockPodcasts} />);
+
+    const input: HTMLInputElement = screen.getByTestId("filter-input");
+    fireEvent.change(input, { target: { value: "science" } });
+
+    expect(input.value).toBe("science");
+  });
+
+  test("should show specific podcasts depending on the user's input", () => {
+    render(<PodcastList podcasts={mockPodcasts} />);
+
+    const input: HTMLInputElement = screen.getByTestId("filter-input");
+
+    fireEvent.change(input, { target: { value: "science" } });
+
+    // I should receive only the podcasts with title or description with 'science'
+    expect(screen.getByText(/science/i)).toBeInTheDocument();
+
+    expect(() => screen.getByText(/cooking talks/i)).toThrow();
+  });
+
+  test("should show the received podcast list if the input it's an empty string '' after searching for the first time ", () => {
+    render(<PodcastList podcasts={mockPodcasts} />);
+
+    const input: HTMLInputElement = screen.getByTestId("filter-input");
+
+    fireEvent.change(input, { target: { value: "science" } });
+
+    // I should receive only the podcasts with title or description with 'science'
+    expect(screen.getByText(/science/i)).toBeInTheDocument();
+
+    expect(() => screen.getByText(/cooking talks/i)).toThrow();
+
+    // user deletes all the input to start the search again
+    fireEvent.change(input, { target: { value: "" } });
+
+    // every podcast has the subtitle "Author: " on their remplate
+
+    expect(screen.getAllByText(/author/i).length).toEqual(mockPodcasts.length);
+  });
 });

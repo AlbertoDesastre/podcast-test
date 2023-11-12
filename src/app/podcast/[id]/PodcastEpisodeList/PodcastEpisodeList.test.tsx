@@ -1,22 +1,19 @@
 import React from "react";
-import { prettyDOM, render } from "@testing-library/react";
+import { prettyDOM, render, screen } from "@testing-library/react";
 
 import { podcastEpisodes } from "@/assets";
-import PodcastDetail from "../page";
 import PodcastEpisodeList from "./PodcastEpisodeList";
-
-// NOTE TO SELF IMPROVEMENT --> Also should have tested the redirections when pressing a LiNK
 
 describe("PODCAST EPISODE LIST", () => {
   test("should render the amount of links equal to the amount of episodes", () => {
     const episodes = podcastEpisodes[0].episodes;
 
-    const view = render(
+    render(
       <PodcastEpisodeList podcastEpisodes={episodes} params={{ id: "1" }} />
     ); // this would emulate the component receiven the ID of the Podcast itself, to then be able to navigate
 
     // if episodes are defined, each episode has an anchor that translater consumer to "podcast/{podcastId/episodes/{episodeId}"
-    const anchors = view.container.querySelectorAll("a");
+    const anchors = screen.queryAllByRole("link");
     expect(anchors.length).toEqual(episodes.length);
   });
 
@@ -25,15 +22,34 @@ describe("PODCAST EPISODE LIST", () => {
     const episode2 = podcastEpisodes[0].episodes[1].episodeTitle; // "Episode 2"
     const episode3 = podcastEpisodes[0].episodes[2].episodeTitle; // "Episode 3"
 
+    render(
+      <PodcastEpisodeList
+        podcastEpisodes={podcastEpisodes[0].episodes}
+        params={{ id: "1" }}
+      /> // this would emulate the component received the ID of the Podcast itself, to then be able to navigate
+    );
+
+    expect(screen.queryByText(/Episode 1/i)).toBeInTheDocument();
+    expect(screen.queryByText(/Episode 2/i)).toBeInTheDocument();
+    expect(screen.queryByText(/Episode 3/i)).toBeInTheDocument();
+  });
+
+  test("should render link based on the podcastId", () => {
+    const podcastPassedByProps = podcastEpisodes[0];
     const view = render(
       <PodcastEpisodeList
         podcastEpisodes={podcastEpisodes[0].episodes}
         params={{ id: "1" }}
-      /> // this would emulate the component receiven the ID of the Podcast itself, to then be able to navigate
+      />
     );
 
-    expect(view.queryByText(/Episode 1/i)).toBeInTheDocument();
-    expect(view.queryByText(/Episode 2/i)).toBeInTheDocument();
-    expect(view.queryByText(/Episode 3/i)).toBeInTheDocument();
+    const linkToPodcast = view.container.querySelector("a");
+
+    // the main attributes of PodcastFigure
+    expect(linkToPodcast).toBeInTheDocument();
+    expect(linkToPodcast).toHaveAttribute(
+      "href",
+      `/podcast/1/episode/${podcastPassedByProps.id}`
+    );
   });
 });

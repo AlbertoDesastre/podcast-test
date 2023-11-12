@@ -1,11 +1,9 @@
 import "@testing-library/jest-dom";
-import { prettyDOM, render } from "@testing-library/react";
-
-import PodcastOverview from "../PodcastOverview/PodcastOverview";
+import { fireEvent, prettyDOM, render, screen } from "@testing-library/react";
 
 import PodcastCard from "./PodcastCard";
-import PodcastList from "../PodcastList/PodcastList";
 import { Podcast } from "@/services/getPodcasts";
+import userEvent from "@testing-library/user-event";
 
 describe("PODCAST CARD", () => {
   let mockPodcasts: Podcast[] = [
@@ -40,24 +38,12 @@ describe("PODCAST CARD", () => {
       ],
     },
   ];
-  /* 
-I don't think this is a test that should be owned by PodcastCard
-  test("should render the articles owned by <PodcastCard>", () => {
-    const view = render(
-      <PodcastOverview>
-        <PodcastList podcasts={mockPodcasts} />
-      </PodcastOverview>
-    );
-    const articles = view.container.querySelectorAll("article");
-
-    expect(articles.length).toEqual(mockPodcasts.length);
-  }); */
 
   test("should render the correct elements of the Podcast passed", () => {
-    const view = render(<PodcastCard podcast={mockPodcasts[0]} />);
+    render(<PodcastCard podcast={mockPodcasts[0]} />);
 
-    const h2Text = view.getByText(mockPodcasts[0].title);
-    const pText = view.getByText(/Artist 1/i); // this equals to the artist of the first position of mockPodcast
+    const h2Text = screen.getByText(mockPodcasts[0].title);
+    const pText = screen.getByText(/Artist 1/i); // this equals to the artist of the first position of mockPodcast
 
     //console.log(prettyDOM(img as HTMLImageElement));
     expect(h2Text).toBeInTheDocument();

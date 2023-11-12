@@ -1,58 +1,26 @@
-import { useState, ChangeEvent } from "react";
+import { ChangeEvent } from "react";
 import PodcastCard from "../PodcastCard/PodcastCard";
 import "./PodcastList.scss";
-import Link from "next/link";
-import constants from "@/constants.json";
 import { Podcast } from "@/services/getPodcasts";
-
-// this could have been it's own hook, and export all the necessary functions, setters, and etc...
-function filterByTitleAndName({
-  textToFind,
-  podcastArray,
-}: {
-  textToFind: string;
-  podcastArray: Podcast[];
-}) {
-  const filteredPodcasts = podcastArray.filter((podcast) => {
-    const title = podcast.title.toLowerCase();
-    const artist = podcast.artist.toLowerCase();
-    const matchingText = textToFind.toLowerCase();
-
-    return title.includes(matchingText) || artist.includes(matchingText);
-  });
-
-  return filteredPodcasts;
-}
+import useFilterPodcasts from "./useFilterPodcast";
 
 function PodcastList({ podcasts }: { podcasts: Podcast[] }) {
-  const [filter, setFilter] = useState("");
-  const [matchingPodcasts, setMatchingPodcasts] = useState(podcasts);
-  const [countMatchingPodcasts, setCountMatchingPodcasts] = useState(
-    podcasts.length
-  );
-  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setFilter(event.target.value);
-    console.log(event.target.value);
+  const { filterByNameAndTitle, matchingPodcasts, podcastCount } =
+    useFilterPodcasts({ podcasts });
 
-    if (event.target.value === "") {
-      setMatchingPodcasts(podcasts);
-      setCountMatchingPodcasts(podcasts.length);
-    } else {
-      const resultOfFilter = filterByTitleAndName({
-        textToFind: filter,
-        podcastArray: podcasts,
-      });
-      setMatchingPodcasts(resultOfFilter);
-      setCountMatchingPodcasts(resultOfFilter.length);
-    }
+  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const search = event.target.value;
+    // console.log(event.target.value);
+
+    filterByNameAndTitle({ search });
   };
 
   return (
     <>
       <header className="filter-header">
-        <span>{countMatchingPodcasts}</span>
+        <span>{podcastCount}</span>
         <input
-          data-test-id="filter-input"
+          data-testid="filter-input"
           type="text"
           onChange={handleInputChange}
           placeholder="Filter podcasts..."
