@@ -1,32 +1,32 @@
 import React from "react";
-import { prettyDOM, render } from "@testing-library/react";
+import { prettyDOM, render, screen } from "@testing-library/react";
 
 import { podcastEpisodes } from "@/assets";
 import PodcastDetail from "../page";
 import PodcastFigure from "./PodcastFigure";
 
-// the same note for improvement as ever. Also I should have tested the redirections when clicking on a Link
-
 describe("PODCAST FIGURE", () => {
   test("should render the selected podcast details and not render the rest", () => {
     const params = { id: podcastEpisodes[1].id };
-    const view = render(<PodcastDetail params={params} />);
+    render(<PodcastDetail params={params} />);
 
     // the episode given by params:
-    expect(view.getByText(podcastEpisodes[1].title)).toBeInTheDocument();
+    expect(screen.getByText(podcastEpisodes[1].title)).toBeInTheDocument();
     expect(
-      view.getByText("by " + podcastEpisodes[1].artist)
+      screen.getByText("by " + podcastEpisodes[1].artist)
     ).toBeInTheDocument();
-    expect(view.getByText(podcastEpisodes[1].description)).toBeInTheDocument();
+    expect(
+      screen.getByText(podcastEpisodes[1].description)
+    ).toBeInTheDocument();
 
     // some random episode...
-    expect(view.queryByText(podcastEpisodes[6].title)).toBeNull();
-    expect(view.queryByText(podcastEpisodes[6].artist)).toBeNull();
+    expect(() => screen.getByText(podcastEpisodes[6].title)).toThrow();
+    expect(() => screen.getByText(podcastEpisodes[6].artist)).toThrow();
   });
 
   test("should render data passed by props and nothing else", () => {
     const podcastPassedByProps = podcastEpisodes[0];
-    const view = render(
+    render(
       <PodcastFigure
         title={podcastPassedByProps.title}
         artist={podcastPassedByProps.artist}
@@ -36,19 +36,19 @@ describe("PODCAST FIGURE", () => {
     );
 
     // the main attributes of PodcastFigure
-    expect(view.getByText(podcastPassedByProps.title)).toBeInTheDocument();
+    expect(screen.getByText(podcastPassedByProps.title)).toBeInTheDocument();
     expect(
-      view.getByText("by " + podcastPassedByProps.artist)
+      screen.getByText("by " + podcastPassedByProps.artist)
     ).toBeInTheDocument();
     expect(
-      view.getByText(podcastPassedByProps.description)
+      screen.getByText(podcastPassedByProps.description)
     ).toBeInTheDocument();
 
     const podcastNotPassed = podcastEpisodes[5];
 
     // a podcast that wasn't passed by props
-    expect(view.queryByText(podcastNotPassed.title)).toBeNull();
-    expect(view.queryByText(podcastNotPassed.artist)).toBeNull();
+    expect(() => screen.getByText(podcastNotPassed.title)).toThrow();
+    expect(() => screen.getByText(podcastNotPassed.artist)).toThrow();
   });
 
   test("should render link based on the podcastId", () => {
