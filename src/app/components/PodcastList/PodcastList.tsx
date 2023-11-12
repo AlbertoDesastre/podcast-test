@@ -1,54 +1,26 @@
-import { useState, ChangeEvent } from "react";
+import { useState, ChangeEvent, useEffect } from "react";
 import PodcastCard from "../PodcastCard/PodcastCard";
 import "./PodcastList.scss";
 import { Podcast } from "@/services/getPodcasts";
+import useFilterPodcasts from "./useFilterPodcast";
 
 // this could have been it's own hook, and export all the necessary functions, setters, and etc...
-function filterByTitleAndName({
-  textToFind,
-  podcastArray,
-}: {
-  textToFind: string;
-  podcastArray: Podcast[];
-}) {
-  const filteredPodcasts = podcastArray.filter((podcast) => {
-    const title = podcast.title.toLowerCase();
-    const artist = podcast.artist.toLowerCase();
-    const matchingText = textToFind.toLowerCase();
-
-    return title.includes(matchingText) || artist.includes(matchingText);
-  });
-
-  return filteredPodcasts;
-}
 
 function PodcastList({ podcasts }: { podcasts: Podcast[] }) {
-  const [filter, setFilter] = useState("");
-  const [matchingPodcasts, setMatchingPodcasts] = useState(podcasts);
-  const [countMatchingPodcasts, setCountMatchingPodcasts] = useState(
-    podcasts.length
-  );
+  const { filterByNameAndTitle, matchingPodcasts, podcastCount } =
+    useFilterPodcasts({ podcasts });
+
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setFilter(event.target.value);
+    const search = event.target.value;
     // console.log(event.target.value);
 
-    if (event.target.value === "") {
-      setMatchingPodcasts(podcasts);
-      setCountMatchingPodcasts(podcasts.length);
-    } else {
-      const resultOfFilter = filterByTitleAndName({
-        textToFind: event.target.value,
-        podcastArray: podcasts,
-      });
-      setMatchingPodcasts(resultOfFilter);
-      setCountMatchingPodcasts(resultOfFilter.length);
-    }
+    filterByNameAndTitle({ search });
   };
 
   return (
     <>
       <header className="filter-header">
-        <span>{countMatchingPodcasts}</span>
+        <span>{podcastCount}</span>
         <input
           data-testid="filter-input"
           type="text"
