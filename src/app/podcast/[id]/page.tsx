@@ -9,7 +9,7 @@ import { getEpisodes } from "@/services/getEpisodes";
 
 function PodcastDetail({ params }: { params: { id: string } }) {
   const { episodes } = getEpisodes();
-  //
+  //s
 
   const episode = episodes.find(
     (matchingEpisode) => matchingEpisode.id === params.id
