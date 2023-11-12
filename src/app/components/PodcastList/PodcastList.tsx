@@ -1,8 +1,6 @@
 import { useState, ChangeEvent } from "react";
 import PodcastCard from "../PodcastCard/PodcastCard";
 import "./PodcastList.scss";
-import Link from "next/link";
-import constants from "@/constants.json";
 import { Podcast } from "@/services/getPodcasts";
 
 // this could have been it's own hook, and export all the necessary functions, setters, and etc...
@@ -32,14 +30,14 @@ function PodcastList({ podcasts }: { podcasts: Podcast[] }) {
   );
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     setFilter(event.target.value);
-    console.log(event.target.value);
+    // console.log(event.target.value);
 
     if (event.target.value === "") {
       setMatchingPodcasts(podcasts);
       setCountMatchingPodcasts(podcasts.length);
     } else {
       const resultOfFilter = filterByTitleAndName({
-        textToFind: filter,
+        textToFind: event.target.value,
         podcastArray: podcasts,
       });
       setMatchingPodcasts(resultOfFilter);
@@ -52,7 +50,7 @@ function PodcastList({ podcasts }: { podcasts: Podcast[] }) {
       <header className="filter-header">
         <span>{countMatchingPodcasts}</span>
         <input
-          data-test-id="filter-input"
+          data-testid="filter-input"
           type="text"
           onChange={handleInputChange}
           placeholder="Filter podcasts..."
